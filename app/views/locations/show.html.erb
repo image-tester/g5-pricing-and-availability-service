@@ -1,121 +1,104 @@
-<% if notice %>
-  <p id="notice"><%= notice %></p>
+<%= link_to 'New Unit', new_location_unit_path(@location) %>
+
+<% @units.each do |unit| %>
+  <%= unit.inspect %>
 <% end %>
 
-<h1><%= @location.name %></h2>
 
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
+<ul>
 
-<div class="floorplans widget">
+  <li class="floorplan clearfix">
+    <div class="floorplan-heading">
+      <p><strong>Cedars One Bedroom</strong></p>
+      <a href="select-unit.html" class="choose-floorplan floorplan-btn"><span><strong class="color">5</strong> Available Now</span>
+        <span class="soon"><strong class="color">3</strong> Available Soon</span></a>
+    </div>
+    <div class="floorplan-info">
+      <div class="floorplan-img">
+        <a href="#" class="floorplan-btn"><img src="http://placehold.it/50x50&text=FP" /></a>
+      </div>
+      <div class="floorplan-beds">
+        <p><strong>1</strong> Bed</p>
+        <p><strong>1</strong> Bath</p>
+      </div>
+      <div class="floorplan-size">
+        <p class="sq-ft floorplan-feature"><strong>700 </strong>Sq Ft</p>
+      </div>
+      <div class="floorplan-rent">
+        <p>Starts At: <strong>$450</strong></p>
+        <p>Deposit: <strong>$0</strong></p>
+      </div>
+    </div>
+  </li> <!-- end floorplan -->
 
-  <h2>Select Your Apartment</h2>
+  <li class="floorplan clearfix">
+    <div class="floorplan-heading">
+      <p><strong>Cedars One Bedroom</strong></p>
+      <a href="select-unit.html" class="choose-floorplan floorplan-btn"><span><strong class="color">5</strong> Available Now</span></a>
+    </div>
+    <div class="floorplan-info">
+      <div class="floorplan-img">
+        <a href="#" class="floorplan-btn"><img src="http://placehold.it/50x50&text=FP" /></a>
+      </div>
+      <div class="floorplan-beds">
+        <p><strong>1</strong> Bed</p>
+        <p><strong>1</strong> Bath</p>
+      </div>
+      <div class="floorplan-size">
+        <p class="sq-ft floorplan-feature"><strong>700 </strong>Sq Ft</p>
+      </div>
+      <div class="floorplan-rent">
+        <p>Starts At: <strong>$450</strong></p>
+        <p>Deposit: <strong>$0</strong></p>
+      </div>
+    </div>
+  </li> <!-- end floorplan -->
 
-  <div class="floorplan-container floorplan-box">
+  <li class="floorplan clearfix">
+    <div class="floorplan-heading">
+      <p><strong>Cedars One Bedroom</strong></p>
+      <a href="select-unit.html" class="choose-floorplan floorplan-btn"><span><strong class="color">5</strong> Available Now</span></a>
+    </div>
+    <div class="floorplan-info">
+      <div class="floorplan-img">
+        <a href="#" class="floorplan-btn"><img src="http://placehold.it/50x50&text=FP" /></a>
+      </div>
+      <div class="floorplan-beds">
+        <p><strong>1</strong> Bed</p>
+        <p><strong>1</strong> Bath</p>
+      </div>
+      <div class="floorplan-size">
+        <p class="sq-ft floorplan-feature"><strong>700 </strong>Sq Ft</p>
+      </div>
+      <div class="floorplan-rent">
+        <p>Starts At: <strong>$450</strong></p>
+        <p>Deposit: <strong>$0</strong></p>
+      </div>
+    </div>
+  </li> <!-- end floorplan -->
 
-    <h3>1. Select Floor Plan</h3>
+  <li class="floorplan clearfix">
+    <div class="floorplan-heading">
+      <p><strong>Cedars One Bedroom</strong></p>
+      <a href="select-unit.html" class="choose-floorplan floorplan-btn"><span><strong class="color">5</strong> Available Now</span></a>
+    </div>
+    <div class="floorplan-info">
+      <div class="floorplan-img">
+        <a href="#" class="floorplan-btn"><img src="http://placehold.it/50x50&text=FP" /></a>
+      </div>
+      <div class="floorplan-beds">
+        <p><strong>1</strong> Bed</p>
+        <p><strong>1</strong> Bath</p>
+      </div>
+      <div class="floorplan-size">
+        <p class="sq-ft floorplan-feature"><strong>700 </strong>Sq Ft</p>
+      </div>
+      <div class="floorplan-rent">
+        <p>Starts At: <strong>$450</strong></p>
+        <p>Deposit: <strong>$0</strong></p>
+      </div>
+    </div>
+  </li> <!-- end floorplan -->
 
-    <!-- STEP 1: CHOOSE FLOORPLAN -->
-    <div class="floorplans-list">
-      <ul>
+</ul>
 
-        <li class="floorplan clearfix">
-          <div class="floorplan-heading">
-            <p><strong>Cedars One Bedroom</strong></p>
-            <a href="select-unit.html" class="choose-floorplan floorplan-btn"><span><strong class="color">5</strong> Available Now</span>
-              <span class="soon"><strong class="color">3</strong> Available Soon</span></a>
-          </div>
-          <div class="floorplan-info">
-            <div class="floorplan-img">
-              <a href="#" class="floorplan-btn"><img src="http://placehold.it/50x50&text=FP" /></a>
-            </div>
-            <div class="floorplan-beds">
-              <p><strong>1</strong> Bed</p>
-              <p><strong>1</strong> Bath</p>
-            </div>
-            <div class="floorplan-size">
-              <p class="sq-ft floorplan-feature"><strong>700 </strong>Sq Ft</p>
-            </div>
-            <div class="floorplan-rent">
-              <p>Starts At: <strong>$450</strong></p>
-              <p>Deposit: <strong>$0</strong></p>
-            </div>
-          </div>
-        </li> <!-- end floorplan -->
-
-        <li class="floorplan clearfix">
-          <div class="floorplan-heading">
-            <p><strong>Cedars One Bedroom</strong></p>
-            <a href="select-unit.html" class="choose-floorplan floorplan-btn"><span><strong class="color">5</strong> Available Now</span></a>
-          </div>
-          <div class="floorplan-info">
-            <div class="floorplan-img">
-              <a href="#" class="floorplan-btn"><img src="http://placehold.it/50x50&text=FP" /></a>
-            </div>
-            <div class="floorplan-beds">
-              <p><strong>1</strong> Bed</p>
-              <p><strong>1</strong> Bath</p>
-            </div>
-            <div class="floorplan-size">
-              <p class="sq-ft floorplan-feature"><strong>700 </strong>Sq Ft</p>
-            </div>
-            <div class="floorplan-rent">
-              <p>Starts At: <strong>$450</strong></p>
-              <p>Deposit: <strong>$0</strong></p>
-            </div>
-          </div>
-        </li> <!-- end floorplan -->
-
-        <li class="floorplan clearfix">
-          <div class="floorplan-heading">
-            <p><strong>Cedars One Bedroom</strong></p>
-            <a href="select-unit.html" class="choose-floorplan floorplan-btn"><span><strong class="color">5</strong> Available Now</span></a>
-          </div>
-          <div class="floorplan-info">
-            <div class="floorplan-img">
-              <a href="#" class="floorplan-btn"><img src="http://placehold.it/50x50&text=FP" /></a>
-            </div>
-            <div class="floorplan-beds">
-              <p><strong>1</strong> Bed</p>
-              <p><strong>1</strong> Bath</p>
-            </div>
-            <div class="floorplan-size">
-              <p class="sq-ft floorplan-feature"><strong>700 </strong>Sq Ft</p>
-            </div>
-            <div class="floorplan-rent">
-              <p>Starts At: <strong>$450</strong></p>
-              <p>Deposit: <strong>$0</strong></p>
-            </div>
-          </div>
-        </li> <!-- end floorplan -->
-
-        <li class="floorplan clearfix">
-          <div class="floorplan-heading">
-            <p><strong>Cedars One Bedroom</strong></p>
-            <a href="select-unit.html" class="choose-floorplan floorplan-btn"><span><strong class="color">5</strong> Available Now</span></a>
-          </div>
-          <div class="floorplan-info">
-            <div class="floorplan-img">
-              <a href="#" class="floorplan-btn"><img src="http://placehold.it/50x50&text=FP" /></a>
-            </div>
-            <div class="floorplan-beds">
-              <p><strong>1</strong> Bed</p>
-              <p><strong>1</strong> Bath</p>
-            </div>
-            <div class="floorplan-size">
-              <p class="sq-ft floorplan-feature"><strong>700 </strong>Sq Ft</p>
-            </div>
-            <div class="floorplan-rent">
-              <p>Starts At: <strong>$450</strong></p>
-              <p>Deposit: <strong>$0</strong></p>
-            </div>
-          </div>
-        </li> <!-- end floorplan -->
-
-      </ul>
-
-    </div> <!-- end STEP 1: SELECT FLOORPLAN -->
-
-  </div> <!-- end floorplan-container -->
-
-</div> <!-- end floorplans -->

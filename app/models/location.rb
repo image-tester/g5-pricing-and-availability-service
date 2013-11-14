@@ -1,4 +1,5 @@
 class Location < ActiveRecord::Base
+  has_many :units, dependent: :destroy
 
   def to_param
     urn

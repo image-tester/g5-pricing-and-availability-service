@@ -1,0 +1,47 @@
+<%= form_for [@location, @unit] do |f| %>
+  <% if @unit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@unit.errors.count, "error") %> prohibited this unit from being saved:</h2>
+
+      <ul>
+      <% @unit.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :location_id, value: params[:id] %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :beds %><br>
+    <%= f.number_field :beds %>
+  </div>
+  <div class="field">
+    <%= f.label :baths %><br>
+    <%= f.number_field :baths %>
+  </div>
+  <div class="field">
+    <%= f.label :size %><br>
+    <%= f.number_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.number_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :deposit %><br>
+    <%= f.number_field :deposit %>
+  </div>
+  <div class="field">
+    <%= f.label :floorplan %><br>
+    <%= f.text_field :floorplan %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

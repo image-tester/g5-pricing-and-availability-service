@@ -1,0 +1,39 @@
+<h1>Listing units</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Beds</th>
+      <th>Baths</th>
+      <th>Size</th>
+      <th>Price</th>
+      <th>Deposit</th>
+      <th>Floorplan</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @units.each do |unit| %>
+      <tr>
+        <td><%= unit.title %></td>
+        <td><%= unit.beds %></td>
+        <td><%= unit.baths %></td>
+        <td><%= unit.size %></td>
+        <td><%= unit.price %></td>
+        <td><%= unit.deposit %></td>
+        <td><%= unit.floorplan %></td>
+        <td><%= link_to 'Show', location_unit_path(@location, unit) %></td>
+        <td><%= link_to 'Edit', edit_location_unit_path(@location, unit) %></td>
+        <td><%= link_to 'Destroy', location_unit_path(@location, unit), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Unit', new_location_unit_path(@location) %>
