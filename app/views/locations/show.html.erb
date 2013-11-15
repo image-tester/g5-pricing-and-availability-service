@@ -1,4 +1,6 @@
-<%= link_to 'New Unit', new_location_unit_path(@location) %>
+<h1><%= @location.name %></h1>
+
+<p><%= link_to 'Create New Unit', new_location_unit_path(@location) %></p>
 
 <ul class="e-content">
   <% @units.each do |unit| %>
@@ -33,3 +35,4 @@
   <% end %>
 </ul>
 
+<p><%= link_to 'Edit Location and Units', edit_location_path(@location) %></p>
