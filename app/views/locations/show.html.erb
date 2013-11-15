@@ -1,104 +1,35 @@
 <%= link_to 'New Unit', new_location_unit_path(@location) %>
 
-<% @units.each do |unit| %>
-  <%= unit.inspect %>
-<% end %>
+<ul class="e-content">
+  <% @units.each do |unit| %>
+    <li class="floorplan clearfix">
 
+      <div class="floorplan-heading">
+        <p><strong><%= unit.title %></strong></p>
+        <a href="select-unit.html" class="choose-floorplan floorplan-btn"><span><strong class="color"><%= unit.available %></strong> Available Now</span>
+          <!--><span class="soon"><strong class="color">3</strong> Available Soon</span></a>-->
+      </div>
 
-<ul>
+      <div class="floorplan-info">
+        <div class="floorplan-img">
+          <a href="#" class="floorplan-btn"><img src="<%= unit.floorplan %>" alt="Floorplan" /></a>
+        </div>
 
-  <li class="floorplan clearfix">
-    <div class="floorplan-heading">
-      <p><strong>Cedars One Bedroom</strong></p>
-      <a href="select-unit.html" class="choose-floorplan floorplan-btn"><span><strong class="color">5</strong> Available Now</span>
-        <span class="soon"><strong class="color">3</strong> Available Soon</span></a>
-    </div>
-    <div class="floorplan-info">
-      <div class="floorplan-img">
-        <a href="#" class="floorplan-btn"><img src="http://placehold.it/50x50&text=FP" /></a>
-      </div>
-      <div class="floorplan-beds">
-        <p><strong>1</strong> Bed</p>
-        <p><strong>1</strong> Bath</p>
-      </div>
-      <div class="floorplan-size">
-        <p class="sq-ft floorplan-feature"><strong>700 </strong>Sq Ft</p>
-      </div>
-      <div class="floorplan-rent">
-        <p>Starts At: <strong>$450</strong></p>
-        <p>Deposit: <strong>$0</strong></p>
-      </div>
-    </div>
-  </li> <!-- end floorplan -->
+        <div class="floorplan-beds">
+          <p><strong><%= unit.beds %></strong> <%= 'Bed'.pluralize(unit.beds) %></p>
+          <p><strong><%= unit.baths %></strong> <%= 'Bath'.pluralize(unit.baths) %></p>
+        </div>
 
-  <li class="floorplan clearfix">
-    <div class="floorplan-heading">
-      <p><strong>Cedars One Bedroom</strong></p>
-      <a href="select-unit.html" class="choose-floorplan floorplan-btn"><span><strong class="color">5</strong> Available Now</span></a>
-    </div>
-    <div class="floorplan-info">
-      <div class="floorplan-img">
-        <a href="#" class="floorplan-btn"><img src="http://placehold.it/50x50&text=FP" /></a>
-      </div>
-      <div class="floorplan-beds">
-        <p><strong>1</strong> Bed</p>
-        <p><strong>1</strong> Bath</p>
-      </div>
-      <div class="floorplan-size">
-        <p class="sq-ft floorplan-feature"><strong>700 </strong>Sq Ft</p>
-      </div>
-      <div class="floorplan-rent">
-        <p>Starts At: <strong>$450</strong></p>
-        <p>Deposit: <strong>$0</strong></p>
-      </div>
-    </div>
-  </li> <!-- end floorplan -->
+        <div class="floorplan-size">
+          <p class="sq-ft floorplan-feature"><strong><%= unit.size %> </strong>Sq Ft</p>
+        </div>
 
-  <li class="floorplan clearfix">
-    <div class="floorplan-heading">
-      <p><strong>Cedars One Bedroom</strong></p>
-      <a href="select-unit.html" class="choose-floorplan floorplan-btn"><span><strong class="color">5</strong> Available Now</span></a>
-    </div>
-    <div class="floorplan-info">
-      <div class="floorplan-img">
-        <a href="#" class="floorplan-btn"><img src="http://placehold.it/50x50&text=FP" /></a>
+        <div class="floorplan-rent">
+          <p>Starts At: <strong>$<%= unit.price %></strong></p>
+          <p>Deposit: <strong>$<%= unit.deposit %></strong></p>
+        </div>
       </div>
-      <div class="floorplan-beds">
-        <p><strong>1</strong> Bed</p>
-        <p><strong>1</strong> Bath</p>
-      </div>
-      <div class="floorplan-size">
-        <p class="sq-ft floorplan-feature"><strong>700 </strong>Sq Ft</p>
-      </div>
-      <div class="floorplan-rent">
-        <p>Starts At: <strong>$450</strong></p>
-        <p>Deposit: <strong>$0</strong></p>
-      </div>
-    </div>
-  </li> <!-- end floorplan -->
-
-  <li class="floorplan clearfix">
-    <div class="floorplan-heading">
-      <p><strong>Cedars One Bedroom</strong></p>
-      <a href="select-unit.html" class="choose-floorplan floorplan-btn"><span><strong class="color">5</strong> Available Now</span></a>
-    </div>
-    <div class="floorplan-info">
-      <div class="floorplan-img">
-        <a href="#" class="floorplan-btn"><img src="http://placehold.it/50x50&text=FP" /></a>
-      </div>
-      <div class="floorplan-beds">
-        <p><strong>1</strong> Bed</p>
-        <p><strong>1</strong> Bath</p>
-      </div>
-      <div class="floorplan-size">
-        <p class="sq-ft floorplan-feature"><strong>700 </strong>Sq Ft</p>
-      </div>
-      <div class="floorplan-rent">
-        <p>Starts At: <strong>$450</strong></p>
-        <p>Deposit: <strong>$0</strong></p>
-      </div>
-    </div>
-  </li> <!-- end floorplan -->
-
+    </li> <!-- end floorplan -->
+  <% end %>
 </ul>
 

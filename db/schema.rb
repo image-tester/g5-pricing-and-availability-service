@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20131114191356) do
 
   create_table "units", force: true do |t|
     t.string   "title"
+    t.integer  "available"
     t.integer  "beds"
     t.integer  "baths"
     t.integer  "size"
