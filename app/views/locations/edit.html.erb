@@ -1,10 +1,10 @@
-<h1>Editing location</h1>
+<h2>Edit Location</h2>
 
-<%= render 'form' %>
+<div class="well">
+  <%= render 'form' %>
+</div>
 
-<%= link_to 'Show', @location %> |
-<%= link_to 'Back', locations_path %>
-
+<h2>Edit Units</h2>
 <% @units.each do |unit| %>
   <%= render 'units/form', {unit: unit, location: @location} %>
 <% end %>

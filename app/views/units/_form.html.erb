@@ -1,7 +1,7 @@
 <% @location ||= location %>
 <% @unit ||= unit %>
 
-<%= form_for [@location, @unit] do |f| %>
+<%= form_for [@location, @unit], html: {role: "form"} do |f| %>
   <% if @unit.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@unit.errors.count, "error") %> prohibited this unit from being saved:</h2>
@@ -16,35 +16,52 @@
 
   <%= f.hidden_field :location_id, value: params[:id] %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :beds %><br>
-    <%= f.number_field :beds %>
+  <div class="row">
+    <div class="form-group col-md-3">
+      <%= f.label :available_now %><br>
+      <%= f.number_field :available_now, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-3">
+      <%= f.label :available_soon %><br>
+      <%= f.number_field :available_soon, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-3">
+      <%= f.label :beds %><br>
+      <%= f.number_field :beds, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-3">
+      <%= f.label :baths %><br>
+      <%= f.number_field :baths, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :baths %><br>
-    <%= f.number_field :baths %>
-  </div>
-  <div class="field">
-    <%= f.label :size %><br>
-    <%= f.number_field :size %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.number_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :deposit %><br>
-    <%= f.number_field :deposit %>
-  </div>
-  <div class="field">
-    <%= f.label :floorplan %><br>
-    <%= f.text_field :floorplan %>
+  <div class="row">
+    <div class="form-group col-md-3">
+      <%= f.label :size %><br>
+      <%= f.number_field :size, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-3">
+      <%= f.label :price %><br>
+      <%= f.number_field :price, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-3">
+      <%= f.label :deposit %><br>
+      <%= f.number_field :deposit, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-3">
+      <%= f.label :floorplan %><br>
+      <%= f.text_field :floorplan, class: "form-control" %>
+    </div>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit(class: "btn btn-primary btn-large") %>
+    <%= link_to 'Cancel', @location, class: "btn btn-default btn-large" %>
+    <% unless @unit.id.nil? %>
+      <%= link_to 'Destroy', location_unit_path(@location, @unit), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-large" %>
+    <% end %>
+
   </div>
 <% end %>

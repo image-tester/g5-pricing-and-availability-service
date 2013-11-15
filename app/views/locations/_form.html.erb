@@ -1,4 +1,4 @@
-<%= form_for(@location) do |f| %>
+<%= form_for @location, html: {role: "form"} do |f| %>
   <% if @location.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
@@ -11,15 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :urn %><br>
-    <%= f.text_field :urn %>
+    <%= f.text_field :urn, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit(class: "btn btn-primary btn-large") %>
+    <%= link_to 'Cancel', locations_path, class: "btn btn-danger btn-default" %>
   </div>
 <% end %>

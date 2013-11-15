@@ -1,6 +1,9 @@
-<h1><%= @location.name %></h1>
+<header class="clearfix">
+  <h2 class="pull-left"><%= @location.name %> Units</h2>
+  <%= link_to 'Edit Location and Units', edit_location_path(@location), class: "btn btn-default btn-large pull-right" %>
+  <%= link_to 'Create New Unit', new_location_unit_path(@location), class: "btn btn-primary btn-large pull-right" %>
+</header>
 
-<p><%= link_to 'Create New Unit', new_location_unit_path(@location) %></p>
 
 <ul class="e-content">
   <% @units.each do |unit| %>
@@ -8,8 +11,16 @@
 
       <div class="floorplan-heading">
         <p><strong><%= unit.title %></strong></p>
-        <a href="select-unit.html" class="choose-floorplan floorplan-btn"><span><strong class="color"><%= unit.available %></strong> Available Now</span>
-          <!--><span class="soon"><strong class="color">3</strong> Available Soon</span></a>-->
+        <% if unit.available_now && unit.available_soon %>
+          <a href="select-unit.html" class="choose-floorplan floorplan-btn">
+            <% if unit.available_now && unit.available_now > 0 %>
+              <span><strong class="color"><%= unit.available_now %></strong> Available Now</span>
+            <% end %>
+            <% if unit.available_soon && unit.available_soon > 0 %>
+              <span class="soon"><strong class="color"><%= unit.available_soon %></strong> Available Soon</span>
+            <% end %>
+          </a>
+        <% end %>
       </div>
 
       <div class="floorplan-info">
@@ -35,4 +46,3 @@
   <% end %>
 </ul>
 
-<p><%= link_to 'Edit Location and Units', edit_location_path(@location) %></p>

@@ -1,0 +1,36 @@
+header {
+  margin-bottom: 1em;
+}
+
+header .btn {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+ul, li {
+  list-style-type: none;
+}
+
+ul {
+  padding-left: 0;
+}
+
+.floorplan {
+  border-top: 1px solid #ddd;
+  padding: 8px;
+}
+
+.floorplan:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.floorplan-heading,
+.floorplan-heading p,
+.floorplan-heading a,
+.floorplan-info,
+.floorplan-info > div,
+.floorplan-beds p,
+.floorplan-rent p {
+  float: left;
+  margin-right: 20px;
+}

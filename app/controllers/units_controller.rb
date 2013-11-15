@@ -57,7 +57,7 @@ class UnitsController < ApplicationController
   def destroy
     @unit.destroy
     respond_to do |format|
-      format.html { redirect_to location_units_url }
+      format.html { redirect_to location_path(@location) }
       format.json { head :no_content }
     end
   end
@@ -70,7 +70,7 @@ class UnitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def unit_params
-      params.require(:unit).permit(:title, :beds, :baths, :size, :price, :deposit, :floorplan)
+      params.require(:unit).permit(:title, :available_now, :available_soon, :beds, :baths, :size, :price, :deposit, :floorplan)
     end
 
     def get_location
