@@ -20,6 +20,7 @@ class LocationsController < ApplicationController
 
   # GET /locations/1/edit
   def edit
+    @units = @location.units
   end
 
   # POST /locations

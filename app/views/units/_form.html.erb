@@ -1,3 +1,6 @@
+<% @location ||= location %>
+<% @unit ||= unit %>
+
 <%= form_for [@location, @unit] do |f| %>
   <% if @unit.errors.any? %>
     <div id="error_explanation">

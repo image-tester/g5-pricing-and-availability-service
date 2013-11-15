@@ -4,3 +4,7 @@
 
 <%= link_to 'Show', @location %> |
 <%= link_to 'Back', locations_path %>
+
+<% @units.each do |unit| %>
+  <%= render 'units/form', {unit: unit, location: @location} %>
+<% end %>
