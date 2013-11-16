@@ -1,8 +1,12 @@
 <header class="clearfix">
   <h2 class="pull-left"><%= @location.name %> Units</h2>
-  <%= link_to 'Edit Location and Units', edit_location_path(@location), class: "btn btn-default btn-large pull-right" %>
-  <%= link_to 'Create New Unit', new_location_unit_path(@location), class: "btn btn-primary btn-large pull-right" %>
+  <%= link_to 'Edit Location and Units', edit_location_path(@location), class: "btn btn-primary btn-lg pull-right" %>
+  <%= link_to 'Create New Unit', new_location_unit_path(@location), class: "btn btn-success btn-lg pull-right" %>
 </header>
+
+<% if @units.empty? %>
+  <p>No units have been created yet.</p>
+<% end %>
 
 
 <ul class="e-content">

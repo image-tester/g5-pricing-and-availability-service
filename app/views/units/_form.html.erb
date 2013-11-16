@@ -57,10 +57,10 @@
     </div>
   </div>
   <div class="actions">
-    <%= f.submit(class: "btn btn-primary btn-large") %>
-    <%= link_to 'Cancel', @location, class: "btn btn-default btn-large" %>
+    <%= f.submit(class: "btn btn-success pull-right") %>
+    <%= link_to 'Cancel', @location, class: "btn" %>
     <% unless @unit.id.nil? %>
-      <%= link_to 'Destroy', location_unit_path(@location, @unit), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-large" %>
+      <%= link_to 'Destroy', location_unit_path(@location, @unit), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
     <% end %>
 
   </div>

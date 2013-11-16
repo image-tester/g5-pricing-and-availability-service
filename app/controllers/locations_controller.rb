@@ -11,6 +11,7 @@ class LocationsController < ApplicationController
   # GET /locations/1.json
   def show
     @units = @location.units
+    @title = "#{@location.name} Units"
   end
 
   # GET /locations/new
