@@ -1,6 +1,6 @@
 # G5 Pricing and Availability Service
 
-* Creates pricing and availability data for a client's various locations
+A Rails app for creating pricing and availability data for client location sites.
 
 
 ## Setup
