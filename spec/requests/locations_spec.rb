@@ -67,7 +67,7 @@ describe "Locations" do
   end
 
   describe "Destroy Locations" do
-    it "can delete a location" do
+    it "can destroy a location" do
       visit new_location_path
       create_location
       click_link "Pricing and Availability"
