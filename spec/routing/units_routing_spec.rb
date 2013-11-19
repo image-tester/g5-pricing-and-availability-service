@@ -4,31 +4,31 @@ describe UnitsController do
   describe "routing" do
 
     it "routes to #index" do
-      get("/units").should route_to("units#index")
+      expect(get("/locations/1/units")).to route_to("units#index", location_id: '1')
     end
 
     it "routes to #new" do
-      get("/units/new").should route_to("units#new")
+      expect(get("/locations/1/units/new")).to route_to("units#new", location_id: '1')
     end
 
     it "routes to #show" do
-      get("/units/1").should route_to("units#show", :id => "1")
+      expect(get("/locations/1/units/1")).to route_to("units#show", :id => "1", location_id: '1')
     end
 
     it "routes to #edit" do
-      get("/units/1/edit").should route_to("units#edit", :id => "1")
+      expect(get("/locations/1/units/1/edit")).to route_to("units#edit", :id => "1", location_id: '1')
     end
 
     it "routes to #create" do
-      post("/units").should route_to("units#create")
+      expect(post("/locations/1/units")).to route_to("units#create", location_id: '1')
     end
 
     it "routes to #update" do
-      put("/units/1").should route_to("units#update", :id => "1")
+      expect(put("/locations/1/units/1")).to route_to("units#update", :id => "1", location_id: '1')
     end
 
     it "routes to #destroy" do
-      delete("/units/1").should route_to("units#destroy", :id => "1")
+      expect(delete("/locations/1/units/1")).to route_to("units#destroy", :id => "1", location_id: '1')
     end
 
   end
