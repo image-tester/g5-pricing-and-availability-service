@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131114191356) do
+ActiveRecord::Schema.define(version: 20131213183534) do
 
   create_table "locations", force: true do |t|
     t.string   "urn"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20131114191356) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "location_id"
+    t.string   "price_url"
   end
 
 end

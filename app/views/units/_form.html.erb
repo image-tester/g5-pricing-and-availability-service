@@ -16,9 +16,15 @@
 
   <%= f.hidden_field :location_id, value: params[:id] %>
 
-  <div class="form-group">
-    <%= f.label :title %><br>
-    <%= f.text_field :title, class: "form-control" %>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <%= f.label :title %><br>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= f.label :price_url %><br>
+      <%= f.text_field :price_url, type: "url", class: "form-control" %>
+    </div>
   </div>
   <div class="row">
     <div class="form-group col-md-3">
@@ -57,7 +63,7 @@
     </div>
   </div>
   <div class="actions">
-    <%= f.submit(class: "btn btn-success pull-right") %>
+    <%= f.submit(class: "btn btn-primary pull-right") %>
     <%= link_to 'Cancel', @location, class: "btn" %>
     <% unless @unit.id.nil? %>
       <%= link_to 'Destroy', location_unit_path(@location, @unit), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>

@@ -9,44 +9,95 @@
 <% end %>
 
 
-<ul class="e-content">
-  <% @units.each do |unit| %>
-    <li class="floorplan clearfix">
+<div class="e-content">
 
-      <div class="floorplan-heading">
-        <p><strong><%= unit.title %></strong></p>
-        <% if unit.available_now && unit.available_soon %>
-          <a href="select-unit.html" class="choose-floorplan floorplan-btn">
-            <% if unit.available_now && unit.available_now > 0 %>
-              <span><strong class="color"><%= unit.available_now %></strong> Available Now</span>
-            <% end %>
-            <% if unit.available_soon && unit.available_soon > 0 %>
-              <span class="soon"><strong class="color"><%= unit.available_soon %></strong> Available Soon</span>
-            <% end %>
-          </a>
+  <h2>Select Your Apartment</h2>
+
+  <div class="floorplan-container floorplan-box">
+
+    <h3>1. Select Floor Plan</h3>
+
+    <div id="filters" class="clearfix">
+
+      <div class="beds-filter filter filter-btn">
+        <strong class="color">Beds</strong>
+        <a href="#" class="floorplan-btn">Studio</a>
+        <a href="#" class="floorplan-btn">1</a>
+        <a href="#" class="floorplan-btn">2</a>
+        <a href="#" class="floorplan-btn">3</a>
+        <a href="#" class="color floorplan-btn">All</a>
+      </div>
+      <div class="baths-filter filter filter-btn">
+        <strong class="color">Baths</strong>
+        <a href="#" class="floorplan-btn">1</a>
+        <a href="#" class="floorplan-btn">2</a>
+        <a href="#" class="floorplan-btn">3</a>
+        <a href="#" class="color floorplan-btn">All</a>
+      </div>
+      <div class="filter available-filter">
+        <label><input type="checkbox" /> Show Only Available</label>
+      </div>
+
+    </div> <!-- end filters -->
+
+    <!-- STEP 1: CHOOSE FLOORPLAN -->
+    <div class="floorplans-list">
+
+      <ul>
+        <% @units.each do |unit| %>
+          <li class="floorplan clearfix">
+
+            <div class="floorplan-heading">
+              <p><strong><%= unit.title %></strong></p>
+              <% if unit.available_now && unit.available_soon %>
+                <a href="<%= pricing_service(unit) %>" class="choose-floorplan floorplan-btn">
+                  <% if unit.available_now && unit.available_now > 0 %>
+                    <span><strong class="color"><%= unit.available_now %></strong> Available Now</span>
+                  <% end %>
+                  <% if unit.available_soon && unit.available_soon > 0 %>
+                    <span class="soon"><strong class="color"><%= unit.available_soon %></strong> Available Soon</span>
+                  <% end %>
+                </a>
+              <% end %>
+            </div>
+
+            <div class="floorplan-info">
+              <div class="floorplan-img">
+                <% if unit.floorplan %>
+                  <a href="#" class="floorplan-btn"><img src="<%= unit.floorplan %>" alt="Floorplan" /></a>
+                <% end %>
+              </div>
+
+              <div class="floorplan-beds">
+                <% if unit.beds %>
+                  <p><strong><%= unit.beds %></strong> <%= 'Bed'.pluralize(unit.beds) %></p>
+                <% end %>
+                <% if unit.baths %>
+                  <p><strong><%= unit.baths %></strong> <%= 'Bath'.pluralize(unit.baths) %></p>
+                <% end %>
+              </div>
+
+              <div class="floorplan-size">
+                <% if unit.size %>
+                  <p class="sq-ft floorplan-feature"><strong><%= unit.size %> </strong>Sq Ft</p>
+                <% end %>
+              </div>
+
+              <div class="floorplan-rent">
+                <% if unit.price %>
+                  <p>Starts At: <strong>$<%= unit.price %></strong></p>
+                <% end %>
+                <% if unit.deposit %>
+                  <p>Deposit: <strong>$<%= unit.deposit %></strong></p>
+                <% end %>
+              </div>
+            </div>
+          </li> <!-- end floorplan -->
         <% end %>
-      </div>
 
-      <div class="floorplan-info">
-        <div class="floorplan-img">
-          <a href="#" class="floorplan-btn"><img src="<%= unit.floorplan %>" alt="Floorplan" /></a>
-        </div>
+      </ul>
+    </div> <!-- end STEP 1: SELECT FLOORPLAN -->
+  </div> <!-- end floorplan-container -->
+</div> <!-- end floorplans -->
 
-        <div class="floorplan-beds">
-          <p><strong><%= unit.beds %></strong> <%= 'Bed'.pluralize(unit.beds) %></p>
-          <p><strong><%= unit.baths %></strong> <%= 'Bath'.pluralize(unit.baths) %></p>
-        </div>
-
-        <div class="floorplan-size">
-          <p class="sq-ft floorplan-feature"><strong><%= unit.size %> </strong>Sq Ft</p>
-        </div>
-
-        <div class="floorplan-rent">
-          <p>Starts At: <strong>$<%= unit.price %></strong></p>
-          <p>Deposit: <strong>$<%= unit.deposit %></strong></p>
-        </div>
-      </div>
-    </li> <!-- end floorplan -->
-  <% end %>
-</ul>
 

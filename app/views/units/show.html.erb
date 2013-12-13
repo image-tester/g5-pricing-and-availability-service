@@ -35,5 +35,10 @@
   <%= @unit.floorplan %>
 </p>
 
+<p>
+  <strong>Pricing Url</strong>
+  <%= @unit.price_url %>
+</p>
+
 <%= link_to 'Edit', edit_location_unit_path(@location, @unit) %> |
 <%= link_to 'Back', location_units_path(@location) %>

@@ -29,6 +29,7 @@ ul {
   text-decoration: none;
 }
 
+/* Minimal styles for displaying floorplans */
 .floorplan {
   border-top: 1px solid #ddd;
   padding: 8px;
@@ -37,7 +38,6 @@ ul {
 .floorplan:nth-child(odd) {
   background-color: #f9f9f9;
 }
-
 .floorplan-heading,
 .floorplan-heading p,
 .floorplan-heading a,
@@ -47,4 +47,16 @@ ul {
 .floorplan-rent p {
   float: left;
   margin-right: 20px;
+}
+
+
+/* Show only floorplan info */
+.e-content h2,
+.e-content h3,
+.e-content #filters {
+  display: none;
+}
+
+.e-content {
+  margin-top: 3em;
 }

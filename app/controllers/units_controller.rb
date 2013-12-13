@@ -70,7 +70,7 @@ class UnitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def unit_params
-      params.require(:unit).permit(:title, :available_now, :available_soon, :beds, :baths, :size, :price, :deposit, :floorplan)
+      params.require(:unit).permit(:title, :price_url, :available_now, :available_soon, :beds, :baths, :size, :price, :deposit, :floorplan)
     end
 
     def get_location
