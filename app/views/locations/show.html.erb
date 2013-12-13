@@ -50,7 +50,7 @@
             <div class="floorplan-heading">
               <p><strong><%= unit.title %></strong></p>
               <% if unit.available_now && unit.available_soon %>
-                <a href="select-unit.html" class="choose-floorplan floorplan-btn">
+                <a href="<%= pricing_service(unit) %>" class="choose-floorplan floorplan-btn">
                   <% if unit.available_now && unit.available_now > 0 %>
                     <span><strong class="color"><%= unit.available_now %></strong> Available Now</span>
                   <% end %>
