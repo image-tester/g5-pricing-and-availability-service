@@ -16,9 +16,15 @@
 
   <%= f.hidden_field :location_id, value: params[:id] %>
 
-  <div class="form-group">
-    <%= f.label :title %><br>
-    <%= f.text_field :title, class: "form-control" %>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <%= f.label :title %><br>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= f.label :price_url %><br>
+      <%= f.text_field :price_url, type: "url", class: "form-control" %>
+    </div>
   </div>
   <div class="row">
     <div class="form-group col-md-3">
