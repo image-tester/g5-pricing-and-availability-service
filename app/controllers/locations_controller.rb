@@ -10,8 +10,8 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
-    @units = @location.units
-    @title = "#{@location.name} Units"
+    @floorplans = @location.floorplans
+    @title = "#{@location.name} Floorplans"
   end
 
   # GET /locations/new
@@ -21,7 +21,7 @@ class LocationsController < ApplicationController
 
   # GET /locations/1/edit
   def edit
-    @units = @location.units
+    @floorplans = @location.floorplans
   end
 
   # POST /locations

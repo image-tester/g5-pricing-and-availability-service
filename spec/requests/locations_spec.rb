@@ -36,7 +36,7 @@ describe "Locations" do
 
     it "lets me create a new location" do
       create_location
-      expect(page).to have_content "Clearwater Units"
+      expect(page).to have_content "Clearwater Floorplans"
     end
   end
 
@@ -44,7 +44,7 @@ describe "Locations" do
     before do
       visit new_location_path
       create_location
-      click_link "Edit Location and Units"
+      click_link "Edit Location and Floorplans"
     end
 
     it "has edit location heading" do

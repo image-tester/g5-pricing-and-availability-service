@@ -1,4 +1,4 @@
-<h1>Listing units</h1>
+<h1>Listing floorplans</h1>
 
 <table>
   <thead>
@@ -17,18 +17,18 @@
   </thead>
 
   <tbody>
-    <% @units.each do |unit| %>
+    <% @floorplans.each do |floorplan| %>
       <tr>
-        <td><%= unit.title %></td>
-        <td><%= unit.beds %></td>
-        <td><%= unit.baths %></td>
-        <td><%= unit.size %></td>
-        <td><%= unit.price %></td>
-        <td><%= unit.deposit %></td>
-        <td><%= unit.floorplan %></td>
-        <td><%= link_to 'Show', location_unit_path(@location, unit) %></td>
-        <td><%= link_to 'Edit', edit_location_unit_path(@location, unit) %></td>
-        <td><%= link_to 'Destroy', location_unit_path(@location, unit), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= floorplan.title %></td>
+        <td><%= floorplan.beds %></td>
+        <td><%= floorplan.baths %></td>
+        <td><%= floorplan.size %></td>
+        <td><%= floorplan.price %></td>
+        <td><%= floorplan.deposit %></td>
+        <td><%= floorplan.floorplan %></td>
+        <td><%= link_to 'Show', location_floorplan_path(@location, floorplan) %></td>
+        <td><%= link_to 'Edit', edit_location_floorplan_path(@location, floorplan) %></td>
+        <td><%= link_to 'Destroy', location_floorplan_path(@location, floorplan), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Unit', new_location_unit_path(@location) %>
+<%= link_to 'New Floorplan', new_location_floorplan_path(@location) %>

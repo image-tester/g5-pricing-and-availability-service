@@ -1,2 +1,2 @@
-module UnitsHelper
+module FloorplansHelper
 end

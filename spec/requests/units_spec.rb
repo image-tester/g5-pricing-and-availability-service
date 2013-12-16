@@ -8,8 +8,8 @@ def create_location
   click_button "Create Location"
 end
 
-def create_unit
-  click_link "Create New Unit"
+def create_floorplan
+  click_link "Create New Floorplan"
   fill_in "Title", with: "Cedar Point"
   fill_in "Available now", with: "2"
   fill_in "Available soon", with: "1"
@@ -19,74 +19,74 @@ def create_unit
   fill_in "Price", with: "1600"
   fill_in "Deposit", with: "0"
   fill_in "Floorplan", with: "http://placehold.it/50x50"
-  click_button "Create Unit"
+  click_button "Create Floorplan"
 end
 
-describe "Units" do
+describe "Floorplans" do
 
-  describe "Units index" do
+  describe "Floorplans index" do
     before do
       create_location
-      create_unit
+      create_floorplan
     end
 
-    it "has location units heading" do
-      expect(page).to have_content "Clearwater Units"
+    it "has location floorplans heading" do
+      expect(page).to have_content "Clearwater Floorplans"
     end
 
-    it "shows all units" do
+    it "shows all floorplans" do
       expect(page).to have_content "Cedar Point"
       expect(page).to have_content "3 Beds"
     end
   end
 
-  describe "New Unit" do
+  describe "New Floorplan" do
     before do
       create_location
     end
 
-    it "has new unit heading" do
-      expect(page).to have_content "New Unit"
+    it "has new floorplan heading" do
+      expect(page).to have_content "New Floorplan"
     end
 
-    it "lets me create a new unit" do
-      create_unit
+    it "lets me create a new floorplan" do
+      create_floorplan
       expect(page).to have_content "Cedar Point"
       expect(page).to have_content "1400"
     end
   end
 
-  describe "Edit Unit" do
+  describe "Edit Floorplan" do
     before do
       create_location
-      create_unit
-      click_link "Edit Location and Units"
+      create_floorplan
+      click_link "Edit Location and Floorplans"
     end
 
-    it "has edit unit header" do
-      expect(page).to have_content "Edit Units"
+    it "has edit floorplan header" do
+      expect(page).to have_content "Edit Floorplans"
     end
 
-    it "has form filled in with unit data" do
-      expect(page).to have_field("unit[title]", with: "Cedar Point")
-      expect(page).to have_field("unit[beds]", with: "3")
+    it "has form filled in with floorplan data" do
+      expect(page).to have_field("floorplan[title]", with: "Cedar Point")
+      expect(page).to have_field("floorplan[beds]", with: "3")
     end
 
-    it "can edit a unit" do
+    it "can edit a floorplan" do
       fill_in "Title", with: "Mountain Ridge"
       fill_in "Size", with: "1650"
-      click_button "Update Unit"
+      click_button "Update Floorplan"
       expect(page).to have_content "Mountain Ridge"
       expect(page).to have_content "1650"
     end
   end
 
-  describe "Destory Units" do
-    it "can destroy a unit" do
+  describe "Destory Floorplans" do
+    it "can destroy a floorplan" do
       create_location
-      create_unit
-      click_link "Edit Location and Units"
-      within(".edit_unit") do
+      create_floorplan
+      click_link "Edit Location and Floorplans"
+      within(".edit_floorplan") do
         click_link "Destroy"
       end
       expect(page).not_to have_content "Cedar Point"

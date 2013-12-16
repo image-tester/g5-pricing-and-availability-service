@@ -1,61 +1,61 @@
-class UnitsController < ApplicationController
-  before_action :set_unit, only: [:show, :edit, :update, :destroy]
+class FloorplansController < ApplicationController
+  before_action :set_floorplan, only: [:show, :edit, :update, :destroy]
   before_filter :get_location
 
-  # GET /units
-  # GET /units.json
+  # GET /floorplans
+  # GET /floorplans.json
   def index
-    @units = Unit.all
+    @floorplans = Floorplan.all
   end
 
-  # GET /units/1
-  # GET /units/1.json
+  # GET /floorplans/1
+  # GET /floorplans/1.json
   def show
   end
 
-  # GET /units/new
+  # GET /floorplans/new
   def new
-    @unit = Unit.new(location: @location)
+    @floorplan = Floorplan.new(location: @location)
   end
 
-  # GET /units/1/edit
+  # GET /floorplans/1/edit
   def edit
   end
 
-  # POST /units
-  # POST /units.json
+  # POST /floorplans
+  # POST /floorplans.json
   def create
-    @unit = @location.units.new(unit_params)
+    @floorplan = @location.floorplans.new(floorplan_params)
 
     respond_to do |format|
-      if @unit.save
-        format.html { redirect_to location_path(@location), notice: 'Unit was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @unit }
+      if @floorplan.save
+        format.html { redirect_to location_path(@location), notice: 'Floorplan was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @floorplan }
       else
         format.html { render action: 'new' }
-        format.json { render json: @unit.errors, status: :unprocessable_entity }
+        format.json { render json: @floorplan.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /units/1
-  # PATCH/PUT /units/1.json
+  # PATCH/PUT /floorplans/1
+  # PATCH/PUT /floorplans/1.json
   def update
     respond_to do |format|
-      if @unit.update(unit_params)
-        format.html { redirect_to location_path(@location), notice: 'Unit was successfully updated.' }
+      if @floorplan.update(floorplan_params)
+        format.html { redirect_to location_path(@location), notice: 'Floorplan was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @unit.errors, status: :unprocessable_entity }
+        format.json { render json: @floorplan.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /units/1
-  # DELETE /units/1.json
+  # DELETE /floorplans/1
+  # DELETE /floorplans/1.json
   def destroy
-    @unit.destroy
+    @floorplan.destroy
     respond_to do |format|
       format.html { redirect_to location_path(@location) }
       format.json { head :no_content }
@@ -64,13 +64,13 @@ class UnitsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_unit
-      @unit = Unit.find(params[:id])
+    def set_floorplan
+      @floorplan = Floorplan.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def unit_params
-      params.require(:unit).permit(:title, :price_url, :available_now, :available_soon, :beds, :baths, :size, :price, :deposit, :floorplan)
+    def floorplan_params
+      params.require(:floorplan).permit(:title, :price_url, :available_now, :available_soon, :beds, :baths, :size, :price, :deposit, :floorplan)
     end
 
     def get_location
