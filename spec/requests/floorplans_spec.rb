@@ -1,28 +1,28 @@
 require 'spec_helper'
 
-def create_location
-  visit locations_path
-  click_link "New Location"
-  fill_in "Name", with: "Clearwater"
-  fill_in "Urn", with: "g5-cl-8cz7tip-clearwater"
-  click_button "Create Location"
-end
-
-def create_floorplan
-  click_link "Create New Floorplan"
-  fill_in "Title", with: "Cedar Point"
-  fill_in "Available now", with: "2"
-  fill_in "Available soon", with: "1"
-  fill_in "Beds", with: "3"
-  fill_in "Baths", with: "2"
-  fill_in "Size", with: "1400"
-  fill_in "Price", with: "1600"
-  fill_in "Deposit", with: "0"
-  fill_in "Floorplan", with: "http://placehold.it/50x50"
-  click_button "Create Floorplan"
-end
-
 describe "Floorplans" do
+  
+  def create_location
+    visit locations_path
+    click_link "New Location"
+    fill_in "location_name", with: "Clearwater"
+    fill_in "Urn", with: "g5-cl-8cz7tip-clearwater"
+    click_button "Create Location"
+  end
+
+  def create_floorplan
+    click_link "Create New Floorplan"
+    fill_in "Title", with: "Cedar Point"
+    fill_in "Available now", with: "2"
+    fill_in "Available soon", with: "1"
+    fill_in "Beds", with: "3"
+    fill_in "Baths", with: "2"
+    fill_in "Size", with: "1400"
+    fill_in "Price", with: "1600"
+    fill_in "Deposit", with: "0"
+    fill_in "Floorplan", with: "http://placehold.it/50x50"
+    click_button "Create Floorplan"
+  end
 
   describe "Floorplans index" do
     before do

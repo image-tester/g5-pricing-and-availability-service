@@ -1,12 +1,13 @@
 require 'spec_helper'
 
-def create_location
-  fill_in "Name", with: "Clearwater"
-  fill_in "Urn", with: "g5-cl-8cz7tip-clearwater"
-  click_button "Create Location"
-end
-
 describe "Locations" do
+  
+  def create_location
+    fill_in "Name", with: "Clearwater"
+    fill_in "Urn", with: "g5-cl-8cz7tip-clearwater"
+    click_button "Create Location"
+  end
+  
   describe "Locations index" do
     before do
       visit locations_path
