@@ -1,9 +1,9 @@
 class Location < ActiveRecord::Base
-  has_many :units, dependent: :destroy
+  has_many :floorplans, dependent: :destroy
 
   validates :urn, :name, presence: true
   validates :urn, uniqueness: true
-  validates_associated :units
+  validates_associated :floorplans
 
   def to_param
     urn

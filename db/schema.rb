@@ -11,16 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131213183534) do
+ActiveRecord::Schema.define(version: 20131216200028) do
 
-  create_table "locations", force: true do |t|
-    t.string   "urn"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "units", force: true do |t|
+  create_table "floorplans", force: true do |t|
     t.string   "title"
     t.integer  "available_now"
     t.integer  "available_soon"
@@ -34,6 +27,13 @@ ActiveRecord::Schema.define(version: 20131213183534) do
     t.datetime "updated_at"
     t.integer  "location_id"
     t.string   "price_url"
+  end
+
+  create_table "locations", force: true do |t|
+    t.string   "urn"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

@@ -1,7 +1,7 @@
 module LocationsHelper
   
-  def pricing_service(unit)
-    unit.price_url ? unit.price_url : "#"
+  def pricing_service(floorplan)
+    floorplan.price_url ? floorplan.price_url : "#"
   end
   
 end

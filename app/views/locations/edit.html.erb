@@ -5,9 +5,9 @@
 </div>
 
 <header class="clearfix">
-  <h2 class="pull-left">Edit Units</h2>
-  <%= link_to 'New Unit', new_location_unit_path(@location), class: "btn btn-success pull-right" %>
+  <h2 class="pull-left">Edit Floorplans</h2>
+  <%= link_to 'New Floorplan', new_location_floorplan_path(@location), class: "btn btn-success pull-right" %>
 </header>
-<% @units.each do |unit| %>
-  <%= render 'units/form', {unit: unit, location: @location} %>
+<% @floorplans.each do |floorplan| %>
+  <%= render 'floorplans/form', {floorplan: floorplan, location: @location} %>
 <% end %>
