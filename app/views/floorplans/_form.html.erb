@@ -4,7 +4,7 @@
 <%= form_for [@location, @floorplan], html: {role: "form"} do |f| %>
   <% if @floorplan.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@floorplan.errors.count, "error") %> prohibited this floorplan from being saved:</h2>
+      <h2><%= pluralize(@floorplan.errors.count, "error") %> prohibited this floor plan from being saved:</h2>
 
       <ul>
       <% @floorplan.errors.full_messages.each do |msg| %>
