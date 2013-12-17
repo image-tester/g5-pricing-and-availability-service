@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @floor_plan.title %>
+</p>
+
+<p>
+  <strong>Beds:</strong>
+  <%= @floor_plan.beds %>
+</p>
+
+<p>
+  <strong>Baths:</strong>
+  <%= @floor_plan.baths %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @floor_plan.size %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @floor_plan.price %>
+</p>
+
+<p>
+  <strong>Deposit:</strong>
+  <%= @floor_plan.deposit %>
+</p>
+
+<p>
+  <strong>Floorplan:</strong>
+  <%= @floor_plan.floorplan %>
+</p>
+
+<p>
+  <strong>Pricing Url</strong>
+  <%= @floor_plan.price_url %>
+</p>
+
+<%= link_to 'Edit', edit_location_floor_plan_path(@location, @floor_plan) %> |
+<%= link_to 'Back', location_floor_plans_path(@location) %>

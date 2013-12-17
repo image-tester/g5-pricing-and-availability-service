@@ -1,4 +1,4 @@
-class Floorplan < ActiveRecord::Base
+class FloorPlan < ActiveRecord::Base
   belongs_to :location
   validates :location, presence: true
 

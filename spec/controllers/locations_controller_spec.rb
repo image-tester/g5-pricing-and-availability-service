@@ -44,11 +44,11 @@ describe LocationsController do
       expect(response).to render_template(:show)
     end
 
-    it "assigns the requested location's floorplans as @floorplans" do
+    it "assigns the requested location's floor_plans as @floor_plans" do
       location = Location.create! valid_attributes
-      floorplan1, floorplan2 = location.floorplans.create!, location.floorplans.create!
+      floor_plan1, floor_plan2 = location.floor_plans.create!, location.floor_plans.create!
       get :show, {:id => location.to_param}, valid_session
-      expect(assigns(:floorplans)).to eq([floorplan1, floorplan2])
+      expect(assigns(:floor_plans)).to eq([floor_plan1, floor_plan2])
     end
   end
 
