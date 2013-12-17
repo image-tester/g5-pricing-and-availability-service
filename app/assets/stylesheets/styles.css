@@ -6,6 +6,10 @@ header {
   margin-bottom: 1em;
 }
 
+.btn {
+  text-transform: capitalize;
+}
+
 header .btn {
   margin-left: 20px;
   margin-top: 20px;
