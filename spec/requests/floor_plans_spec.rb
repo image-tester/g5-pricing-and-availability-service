@@ -20,7 +20,7 @@ describe "Floor Plans" do
     fill_in "Size", with: "1400"
     fill_in "Price", with: "1600"
     fill_in "Deposit", with: "0"
-    fill_in "Floorplan", with: "http://placehold.it/50x50"
+    fill_in "Image url", with: "http://placehold.it/50x50"
     click_button "Create Floor plan"
   end
 

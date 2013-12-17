@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131217192122) do
+ActiveRecord::Schema.define(version: 20131217201229) do
 
   create_table "floor_plans", force: true do |t|
     t.string   "title"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20131217192122) do
     t.integer  "size"
     t.integer  "price"
     t.integer  "deposit"
-    t.string   "floorplan"
+    t.string   "image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "location_id"
