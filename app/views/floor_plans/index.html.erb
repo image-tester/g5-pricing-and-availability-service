@@ -9,7 +9,7 @@
       <th>Size</th>
       <th>Price</th>
       <th>Deposit</th>
-      <th>Floorplan</th>
+      <th>Image Url</th>
       <th></th>
       <th></th>
       <th></th>
@@ -25,7 +25,7 @@
         <td><%= floor_plan.size %></td>
         <td><%= floor_plan.price %></td>
         <td><%= floor_plan.deposit %></td>
-        <td><%= floor_plan.floorplan %></td>
+        <td><%= floor_plan.image_url %></td>
         <td><%= link_to 'Show', location_floor_plan_path(@location, floor_plan) %></td>
         <td><%= link_to 'Edit', edit_location_floor_plan_path(@location, floor_plan) %></td>
         <td><%= link_to 'Destroy', location_floor_plan_path(@location, floor_plan), method: :delete, data: { confirm: 'Are you sure?' } %></td>
