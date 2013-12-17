@@ -3,8 +3,10 @@ ruby '1.9.3'
 
 gem 'rails', '4.0.1'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
+gem 'acts_as_list', '~> 0.3.0'
 
 group :assets do
   gem 'sass-rails', '~> 4.0.0'

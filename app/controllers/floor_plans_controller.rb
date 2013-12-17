@@ -61,6 +61,14 @@ class FloorPlansController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def sort
+    @floor_plans = FloorPlan.all
+      @floor_plans.each do |floor_plan|
+        floor_plan.position = params['floor_plan'].index(floor_plan.id.to_s) + 1
+        floor_plan.save
+      end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

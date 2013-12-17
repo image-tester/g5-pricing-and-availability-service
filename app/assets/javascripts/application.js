@@ -12,5 +12,29 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+  $('#floorplans').sortable({
+    axis: 'y',
+    dropOnEmpty: false,
+    handle: '.handle',
+    cursor: 'crosshair',
+    items: 'div',
+    opacity: 0.4,
+    scroll: true,
+    update: function(){
+      $.ajax({
+        url: '/floor_plans/sort',
+        type: 'post',
+        data: $('#books').sortable('serialize'),
+        dataType: 'script',
+        complete: function(request){
+          $('#floorplans').effect('highlight');
+        }
+      });
+    }
+  });
+});

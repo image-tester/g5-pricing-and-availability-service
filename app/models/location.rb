@@ -1,5 +1,5 @@
 class Location < ActiveRecord::Base
-  has_many :floor_plans, dependent: :destroy
+  has_many :floor_plans, dependent: :destroy, order: "position DESC"
 
   validates :urn, :name, presence: true
   validates :urn, uniqueness: true
