@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131216200028) do
+ActiveRecord::Schema.define(version: 20131217192122) do
 
-  create_table "floorplans", force: true do |t|
+  create_table "floor_plans", force: true do |t|
     t.string   "title"
     t.integer  "available_now"
     t.integer  "available_soon"

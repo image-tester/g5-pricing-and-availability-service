@@ -1,5 +1,13 @@
+body {
+  margin-bottom: 2em;
+}
+
 header {
   margin-bottom: 1em;
+}
+
+.btn {
+  text-transform: capitalize;
 }
 
 header .btn {

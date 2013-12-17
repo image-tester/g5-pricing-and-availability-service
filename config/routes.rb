@@ -3,7 +3,7 @@ G5PricingService::Application.routes.draw do
   root 'locations#index'
 
   resources :locations do
-    resources :floorplans
+    resources :floor_plans
   end
 
 end

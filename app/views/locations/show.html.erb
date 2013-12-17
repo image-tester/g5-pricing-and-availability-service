@@ -1,11 +1,11 @@
 <header class="clearfix">
-  <h2 class="pull-left"><%= @location.name %> Floorplans</h2>
-  <%= link_to 'Edit Location and Floorplans', edit_location_path(@location), class: "btn btn-primary btn-lg pull-right" %>
-  <%= link_to 'Create New Floorplan', new_location_floorplan_path(@location), class: "btn btn-success btn-lg pull-right" %>
+  <h2 class="pull-left"><%= @location.name %> Floor Plans</h2>
+  <%= link_to 'Edit Location and Floor Plans', edit_location_path(@location), class: "btn btn-primary btn-lg pull-right" %>
+  <%= link_to 'Create New Floor Plan', new_location_floor_plan_path(@location), class: "btn btn-success btn-lg pull-right" %>
 </header>
 
-<% if @floorplans.empty? %>
-  <p>No floorplans have been created yet.</p>
+<% if @floor_plans.empty? %>
+  <p>No floor plans have been created yet.</p>
 <% end %>
 
 
@@ -44,18 +44,18 @@
     <div class="floorplans-list">
 
       <ul>
-        <% @floorplans.each do |floorplan| %>
+        <% @floor_plans.each do |floor_plan| %>
           <li class="floorplan clearfix">
 
             <div class="floorplan-heading">
-              <p><strong><%= floorplan.title %></strong></p>
-              <% if floorplan.available_now && floorplan.available_soon %>
-                <a href="<%= pricing_service(floorplan) %>" class="choose-floorplan floorplan-btn">
-                  <% if floorplan.available_now && floorplan.available_now > 0 %>
-                    <span><strong class="color"><%= floorplan.available_now %></strong> Available Now</span>
+              <p><strong><%= floor_plan.title %></strong></p>
+              <% if floor_plan.available_now && floor_plan.available_soon %>
+                <a href="<%= pricing_service(floor_plan) %>" class="choose-floorplan floorplan-btn">
+                  <% if floor_plan.available_now && floor_plan.available_now > 0 %>
+                    <span><strong class="color"><%= floor_plan.available_now %></strong> Available Now</span>
                   <% end %>
-                  <% if floorplan.available_soon && floorplan.available_soon > 0 %>
-                    <span class="soon"><strong class="color"><%= floorplan.available_soon %></strong> Available Soon</span>
+                  <% if floor_plan.available_soon && floor_plan.available_soon > 0 %>
+                    <span class="soon"><strong class="color"><%= floor_plan.available_soon %></strong> Available Soon</span>
                   <% end %>
                 </a>
               <% end %>
@@ -63,32 +63,32 @@
 
             <div class="floorplan-info">
               <div class="floorplan-img">
-                <% if floorplan.floorplan %>
-                  <a href="#" class="floorplan-btn"><img src="<%= floorplan.floorplan %>" alt="Floorplan" /></a>
+                <% if floor_plan.floorplan %>
+                  <a href="#" class="floorplan-btn"><img src="<%= floor_plan.floorplan %>" alt="Floor Plan" /></a>
                 <% end %>
               </div>
 
               <div class="floorplan-beds">
-                <% if floorplan.beds %>
-                  <p><strong><%= floorplan.beds %></strong> <%= 'Bed'.pluralize(floorplan.beds) %></p>
+                <% if floor_plan.beds %>
+                  <p><strong><%= floor_plan.beds %></strong> <%= 'Bed'.pluralize(floor_plan.beds) %></p>
                 <% end %>
-                <% if floorplan.baths %>
-                  <p><strong><%= floorplan.baths %></strong> <%= 'Bath'.pluralize(floorplan.baths) %></p>
+                <% if floor_plan.baths %>
+                  <p><strong><%= floor_plan.baths %></strong> <%= 'Bath'.pluralize(floor_plan.baths) %></p>
                 <% end %>
               </div>
 
               <div class="floorplan-size">
-                <% if floorplan.size %>
-                  <p class="sq-ft floorplan-feature"><strong><%= floorplan.size %> </strong>Sq Ft</p>
+                <% if floor_plan.size %>
+                  <p class="sq-ft floorplan-feature"><strong><%= floor_plan.size %> </strong>Sq Ft</p>
                 <% end %>
               </div>
 
               <div class="floorplan-rent">
-                <% if floorplan.price %>
-                  <p>Starts At: <strong>$<%= floorplan.price %></strong></p>
+                <% if floor_plan.price %>
+                  <p>Starts At: <strong>$<%= floor_plan.price %></strong></p>
                 <% end %>
-                <% if floorplan.deposit %>
-                  <p>Deposit: <strong>$<%= floorplan.deposit %></strong></p>
+                <% if floor_plan.deposit %>
+                  <p>Deposit: <strong>$<%= floor_plan.deposit %></strong></p>
                 <% end %>
               </div>
             </div>
