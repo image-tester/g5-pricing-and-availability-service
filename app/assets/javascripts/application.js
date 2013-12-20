@@ -17,7 +17,7 @@
 //= require_tree .
 
 $(document).ready(function(){
-  
+
   $('#sortable').sortable({
     axis: 'y',
     dropOnEmpty: false,
@@ -29,13 +29,13 @@ $(document).ready(function(){
       ui.item.effect('highlight', {}, 1000);
     },
     update: function(e, ui) {
-      location_id = $(this).data('location_id');
+      url = ui.item.data('update_url');
       position = ui.item.index();
       $.ajax({
         type: 'PATCH',
-        URL: ui.item.data('update_url'),
+        url: url,
         dataType: 'json',
-        data: { location: { id: location_id }, floor_plan: { row_order_position: position } }
+        data: { floor_plan: { row_order_position: position } }
       })
     }
   });

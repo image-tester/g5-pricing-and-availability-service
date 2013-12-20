@@ -43,7 +43,7 @@
     <!-- STEP 1: CHOOSE FLOORPLAN -->
     <div class="floorplans-list">
 
-      <ul id="sortable" data-location_id="<%= @location.id %>">
+      <ul id="sortable">
         <% @floor_plans.each do |floor_plan| %>
           <li class="floorplan clearfix" data-update_url="<%= location_floor_plan_path(@location, floor_plan) %>">
 

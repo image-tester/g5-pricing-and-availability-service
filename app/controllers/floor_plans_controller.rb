@@ -74,6 +74,7 @@ class FloorPlansController < ApplicationController
     end
 
     def get_location
+      # You probably want to find by urn here
       @location = Location.find params[:location_id]
     end
 end
