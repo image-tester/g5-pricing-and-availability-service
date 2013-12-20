@@ -116,8 +116,8 @@ describe "Floor Plans" do
     it "Updates database", js: true do
       expect(page).to have_content("Hollywood")
       within "#sortable" do
-        floor_plan_1 = find('li:first-child')
-        floor_plan_2 = find('li:last-child')
+        floor_plan_1 = find('.floorplan:first-child')
+        floor_plan_2 = find('.floorplan:last-child')
         expect(@floor_plan_2.row_order > @floor_plan_1.row_order).to be_true
         floor_plan_2.drag_to(floor_plan_1)
         drag_and_drop(floor_plan_1, floor_plan_2)
