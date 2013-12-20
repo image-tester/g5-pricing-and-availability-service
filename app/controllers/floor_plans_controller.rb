@@ -63,11 +63,12 @@ class FloorPlansController < ApplicationController
   end
   
   def sort
-    @floor_plans = FloorPlan.all
-      @floor_plans.each do |floor_plan|
-        floor_plan.position = params['floor_plan'].index(floor_plan.id.to_s) + 1
-        floor_plan.save
-      end
+    @floor_plan = FloorPlan.find(params[:id])
+    
+    @floor_plan.attributes = params[:floor_plan]
+    @floor_plan.save
+    
+    render nothing: true
   end
 
   private
@@ -78,7 +79,7 @@ class FloorPlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def floor_plan_params
-      params.require(:floor_plan).permit(:title, :price_url, :available_now, :available_soon, :beds, :baths, :size, :price, :deposit, :floorplan)
+      params.require(:floor_plan).permit(:title, :price_url, :available_now, :available_soon, :beds, :baths, :size, :price, :deposit, :floorplan, :row_order)
     end
 
     def get_location

@@ -17,24 +17,27 @@
 //= require_tree .
 
 $(document).ready(function(){
-  $('#floorplans').sortable({
+  
+  $('#sortable').sortable({
     axis: 'y',
     dropOnEmpty: false,
-    handle: '.handle',
-    cursor: 'crosshair',
-    items: 'div',
-    opacity: 0.4,
+    cursor: 'move',
+    items: '.floorplan',
+    opacity: 0.5,
     scroll: true,
-    update: function(){
+    stop: function(e, ui) {
+      ui.item.effect('highlight', {}, 1000);
+    },
+    update: function(e, ui) {
+      item_id = ui.item.data('item_id');
+      position = ui.item.index();
       $.ajax({
-        url: '/floor_plans/sort',
-        type: 'post',
-        data: $('#books').sortable('serialize'),
-        dataType: 'script',
-        complete: function(request){
-          $('#floorplans').effect('highlight');
-        }
-      });
+        type: 'POST',
+        URL: $(this).data('/locations/g5-c-nshej2-myhouse/floor_plans/sort'),
+        dataType: 'json',
+        data: { id: item_id, floor_plan: { row_order_position: position } }
+      })
     }
   });
 });
+

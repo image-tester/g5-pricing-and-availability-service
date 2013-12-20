@@ -6,7 +6,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
-gem 'acts_as_list', '~> 0.3.0'
+gem 'ranked-model'
 
 group :assets do
   gem 'sass-rails', '~> 4.0.0'

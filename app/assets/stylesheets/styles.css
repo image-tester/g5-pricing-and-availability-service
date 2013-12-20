@@ -69,3 +69,7 @@ ul {
 .e-content {
   margin-top: 3em;
 }
+
+#sortable li {
+  cursor: row-resize;
+}

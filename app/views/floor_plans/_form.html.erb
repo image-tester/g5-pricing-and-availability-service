@@ -1,76 +1,73 @@
 <% @location ||= location %>
 <% @floor_plan ||= floor_plan %>
 
-<div id="">
-  <div class="handle">Move</div>
-  <%= form_for [@location, @floor_plan], html: {role: "form"} do |f| %>
-    <% if @floor_plan.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@floor_plan.errors.count, "error") %> prohibited this floor plan from being saved:</h2>
+<%= form_for [@location, @floor_plan], html: {role: "form"} do |f| %>
+  <% if @floor_plan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@floor_plan.errors.count, "error") %> prohibited this floor plan from being saved:</h2>
 
-        <ul>
-        <% @floor_plan.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <%= f.hidden_field :location_id, value: params[:id] %>
-
-    <div class="row">
-      <div class="form-group col-md-6">
-        <%= f.label :title %><br>
-        <%= f.text_field :title, class: "form-control" %>
-      </div>
-      <div class="form-group col-md-6">
-        <%= f.label :price_url %><br>
-        <%= f.text_field :price_url, type: "url", class: "form-control" %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="form-group col-md-3">
-        <%= f.label :available_now %><br>
-        <%= f.number_field :available_now, class: "form-control" %>
-      </div>
-      <div class="form-group col-md-3">
-        <%= f.label :available_soon %><br>
-        <%= f.number_field :available_soon, class: "form-control" %>
-      </div>
-      <div class="form-group col-md-3">
-        <%= f.label :beds %><br>
-        <%= f.number_field :beds, class: "form-control" %>
-      </div>
-      <div class="form-group col-md-3">
-        <%= f.label :baths %><br>
-        <%= f.number_field :baths, class: "form-control" %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="form-group col-md-3">
-        <%= f.label :size %><br>
-        <%= f.number_field :size, class: "form-control" %>
-      </div>
-      <div class="form-group col-md-3">
-        <%= f.label :price %><br>
-        <%= f.number_field :price, class: "form-control" %>
-      </div>
-      <div class="form-group col-md-3">
-        <%= f.label :deposit %><br>
-        <%= f.number_field :deposit, class: "form-control" %>
-      </div>
-      <div class="form-group col-md-3">
-        <%= f.label :image_url %><br>
-        <%= f.text_field :image_url, class: "form-control" %>
-      </div>
-    </div>
-    <div class="actions">
-      <%= f.submit(class: "btn btn-primary pull-right") %>
-      <%= link_to 'Cancel', @location, class: "btn" %>
-      <% unless @floor_plan.id.nil? %>
-        <%= link_to 'Destroy', location_floor_plan_path(@location, @floor_plan), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
+      <ul>
+      <% @floor_plan.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
       <% end %>
-
+      </ul>
     </div>
   <% end %>
-</div>
+
+  <%= f.hidden_field :location_id, value: params[:id] %>
+
+  <div class="row">
+    <div class="form-group col-md-6">
+      <%= f.label :title %><br>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= f.label :price_url %><br>
+      <%= f.text_field :price_url, type: "url", class: "form-control" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-3">
+      <%= f.label :available_now %><br>
+      <%= f.number_field :available_now, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-3">
+      <%= f.label :available_soon %><br>
+      <%= f.number_field :available_soon, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-3">
+      <%= f.label :beds %><br>
+      <%= f.number_field :beds, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-3">
+      <%= f.label :baths %><br>
+      <%= f.number_field :baths, class: "form-control" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-3">
+      <%= f.label :size %><br>
+      <%= f.number_field :size, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-3">
+      <%= f.label :price %><br>
+      <%= f.number_field :price, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-3">
+      <%= f.label :deposit %><br>
+      <%= f.number_field :deposit, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-3">
+      <%= f.label :image_url %><br>
+      <%= f.text_field :image_url, class: "form-control" %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit(class: "btn btn-primary pull-right") %>
+    <%= link_to 'Cancel', @location, class: "btn" %>
+    <% unless @floor_plan.id.nil? %>
+      <%= link_to 'Destroy', location_floor_plan_path(@location, @floor_plan), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
+    <% end %>
+
+  </div>
+<% end %>
