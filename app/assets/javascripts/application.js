@@ -29,13 +29,13 @@ $(document).ready(function(){
       ui.item.effect('highlight', {}, 1000);
     },
     update: function(e, ui) {
-      item_id = ui.item.data('item_id');
+      location_id = $(this).data('location_id');
       position = ui.item.index();
       $.ajax({
-        type: 'POST',
-        URL: $(this).data('/locations/g5-c-nshej2-myhouse/floor_plans/sort'),
+        type: 'PATCH',
+        URL: ui.item.data('update_url'),
         dataType: 'json',
-        data: { id: item_id, floor_plan: { row_order_position: position } }
+        data: { location: { id: location_id }, floor_plan: { row_order_position: position } }
       })
     }
   });
