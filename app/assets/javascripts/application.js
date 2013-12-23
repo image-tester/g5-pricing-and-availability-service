@@ -12,5 +12,32 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+
+  $('#sortable').sortable({
+    axis: 'y',
+    dropOnEmpty: false,
+    cursor: 'move',
+    items: '.floorplan',
+    opacity: 0.5,
+    scroll: true,
+    stop: function(e, ui) {
+      ui.item.effect('highlight', {}, 1000);
+    },
+    update: function(e, ui) {
+      url = ui.item.data('update_url');
+      position = ui.item.index();
+      $.ajax({
+        type: 'PATCH',
+        url: url,
+        dataType: 'json',
+        data: { floor_plan: { row_order_position: position } }
+      })
+    }
+  });
+});
+

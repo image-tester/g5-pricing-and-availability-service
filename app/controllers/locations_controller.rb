@@ -10,7 +10,7 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
-    @floor_plans = @location.floor_plans
+    @floor_plans = @location.floor_plans.rank(:row_order)
     @title = "#{@location.name} Floor Plans"
   end
 
