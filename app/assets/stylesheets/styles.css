@@ -24,6 +24,10 @@ ul {
   padding-left: 0;
 }
 
+img {
+  max-width: 100%;
+}
+
 .btn-destroy:hover,
 .btn-destroy:focus {
   text-decoration: underline;
@@ -56,6 +60,10 @@ ul {
 .floorplan-rent p {
   float: left;
   margin-right: 20px;
+}
+
+.floorplan-btn {
+  width: 50px;
 }
 
 
