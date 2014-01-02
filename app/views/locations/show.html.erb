@@ -49,7 +49,7 @@
 
             <div class="floorplan-heading">
               <p><strong><%= floor_plan.title %></strong></p>
-              <% if floor_plan.available_now && floor_plan.available_soon %>
+              <% if floor_plan.available_now || floor_plan.available_soon %>
                 <a href="<%= pricing_service(floor_plan) %>" class="choose-floorplan floorplan-btn">
                   <% if floor_plan.available_now && floor_plan.available_now > 0 %>
                     <span><strong class="color"><%= floor_plan.available_now %></strong> Available Now</span>
@@ -58,13 +58,17 @@
                     <span class="soon"><strong class="color"><%= floor_plan.available_soon %></strong> Available Soon</span>
                   <% end %>
                 </a>
+              <% else %>
+                <a href="<%= pricing_service(floor_plan) %>" class="choose-floorplan floorplan-btn">
+                  <span>Check Availability</span>
+                </a>
               <% end %>
             </div>
 
             <div class="floorplan-info">
               <div class="floorplan-img">
                 <% if floor_plan.image_url %>
-                  <a href="#" class="floorplan-btn"><img src="<%= floor_plan.image_url %>" alt="Floor Plan" /></a>
+                  <a href="<%= floor_plan.image_url %>" class="floorplan-btn"><img src="<%= floor_plan.image_url %>" alt="Floor Plan" /></a>
                 <% end %>
               </div>
 

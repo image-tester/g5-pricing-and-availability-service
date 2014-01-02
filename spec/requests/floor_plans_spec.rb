@@ -13,14 +13,10 @@ describe "Floor Plans" do
   def create_floor_plan
     click_link "Create New Floor Plan"
     fill_in "Title", with: "Cedar Point"
-    fill_in "Available now", with: "2"
-    fill_in "Available soon", with: "1"
     fill_in "Beds", with: "3"
     fill_in "Baths", with: "2"
     fill_in "Size", with: "1400"
     fill_in "Price", with: "1600"
-    fill_in "Deposit", with: "0"
-    fill_in "Image url", with: "http://placehold.it/50x50"
     click_button "Create Floor plan"
   end
   
@@ -49,6 +45,18 @@ describe "Floor Plans" do
     it "shows all floor plans" do
       expect(page).to have_content "Cedar Point"
       expect(page).to have_content "3 Beds"
+    end
+    
+    it "shows check availability link when none entered" do
+      expect(page).to have_content "Check Availability"
+    end
+    
+    it "shows # available link when entered" do
+      click_link "Edit Location and Floor Plans"
+      within "#edit_floor_plan_1" do
+        fill_in "Available now", with: "2"
+      end
+      expect(page).to have_content "  Available"
     end
   end
 
