@@ -1,13 +1,12 @@
-<% @location ||= location %>
-<% @floor_plan ||= floor_plan %>
+<% floor_plan = floor_plan || @floor_plan %>
 
-<%= form_for [@location, @floor_plan], html: {role: "form"} do |f| %>
-  <% if @floor_plan.errors.any? %>
+<%= form_for [@location, floor_plan], html: {role: "form"} do |f| %>
+  <% if floor_plan.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@floor_plan.errors.count, "error") %> prohibited this floor plan from being saved:</h2>
+      <h2><%= pluralize(floor_plan.errors.count, "error") %> prohibited this floor plan from being saved:</h2>
 
       <ul>
-      <% @floor_plan.errors.full_messages.each do |msg| %>
+      <% floor_plan.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -65,8 +64,8 @@
   <div class="actions">
     <%= f.submit(class: "btn btn-primary pull-right") %>
     <%= link_to 'Cancel', @location, class: "btn" %>
-    <% unless @floor_plan.id.nil? %>
-      <%= link_to 'Destroy', location_floor_plan_path(@location, @floor_plan), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
+    <% unless floor_plan.id.nil? %>
+      <%= link_to 'Destroy', location_floor_plan_path(@location, floor_plan), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
     <% end %>
 
   </div>
