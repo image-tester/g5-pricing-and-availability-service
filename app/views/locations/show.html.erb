@@ -17,26 +17,26 @@
 
     <h3>1. Select Floor Plan</h3>
 
-    <div id="filters" class="clearfix">
+    <div class="filters clearfix">
 
-      <div class="beds-filter filter filter-btn">
-        <strong class="color">Beds</strong>
-        <a href="#" class="floorplan-btn">Studio</a>
-        <a href="#" class="floorplan-btn">1</a>
-        <a href="#" class="floorplan-btn">2</a>
-        <a href="#" class="floorplan-btn">3</a>
-        <a href="#" class="color floorplan-btn">All</a>
+      <div class="beds-filter filter">
+        <strong class="filter-name color">Beds</strong>
+        <input id="beds-0" type="radio" name="beds" value="0" /><label class="filter-btn" for="beds-0">Studio</label>
+        <input id="beds-1" type="radio" name="beds" value="1" /><label class="filter-btn" for="beds-1">1</label>
+        <input id="beds-2" type="radio" name="beds" value="2" /><label class="filter-btn" for="beds-2">2</label>
+        <input id="beds-3" type="radio" name="beds" value="3" /><label class="filter-btn" for="beds-3">3</label>
+        <input id="beds-all" type="radio" name="beds" value="all" /><label class="filter-btn" for="beds-all">All</label>
       </div>
-      <div class="baths-filter filter filter-btn">
-        <strong class="color">Baths</strong>
-        <a href="#" class="floorplan-btn">1</a>
-        <a href="#" class="floorplan-btn">2</a>
-        <a href="#" class="floorplan-btn">3</a>
-        <a href="#" class="color floorplan-btn">All</a>
+      <div class="baths-filter filter">
+        <strong class="filter-name color">Baths</strong>
+        <input id="baths-1" type="radio" name="baths" value="1" /><label class="filter-btn" for="baths-1">1</label>
+        <input id="baths-2" type="radio" name="baths" value="2" /><label class="filter-btn" for="baths-2">2</label>
+        <input id="baths-3" type="radio" name="baths" value="3" /><label class="filter-btn" for="baths-3">3</label>
+        <input id="baths-all" type="radio" name="baths" value="all" /><label class="filter-btn" for="baths-all">All</label>
       </div>
-      <div class="filter available-filter">
+      <!-- <div class="filter available-filter">
         <label><input type="checkbox" /> Show Only Available</label>
-      </div>
+      </div> -->
 
     </div> <!-- end filters -->
 
