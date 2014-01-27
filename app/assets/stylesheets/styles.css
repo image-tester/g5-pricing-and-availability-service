@@ -70,7 +70,7 @@ img {
 /* Show only floorplan info */
 .e-content h2,
 .e-content h3,
-.e-content #filters {
+.e-content .filters {
   display: none;
 }
 
