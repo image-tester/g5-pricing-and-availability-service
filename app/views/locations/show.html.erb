@@ -74,10 +74,10 @@
 
               <div class="floorplan-beds">
                 <% if floor_plan.beds %>
-                  <p><strong><%= floor_plan.beds %></strong> <%= 'Bed'.pluralize(floor_plan.beds) %></p>
+                  <p><strong class="beds-val"><%= floor_plan.beds %></strong> <%= 'Bed'.pluralize(floor_plan.beds) %></p>
                 <% end %>
                 <% if floor_plan.baths %>
-                  <p><strong><%= floor_plan.baths %></strong> <%= 'Bath'.pluralize(floor_plan.baths) %></p>
+                  <p><strong class="baths-val"><%= floor_plan.baths %></strong> <%= 'Bath'.pluralize(floor_plan.baths) %></p>
                 <% end %>
               </div>
 
