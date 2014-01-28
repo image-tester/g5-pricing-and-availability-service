@@ -19,19 +19,19 @@
 
     <div class="filters clearfix">
 
-      <div class="beds-filter filter">
+      <div id="beds-filter" class="filter">
         <strong class="filter-name color">Beds</strong>
-        <input id="beds-0" type="radio" name="beds" value="0" /><label class="filter-btn" for="beds-0">Studio</label>
-        <input id="beds-1" type="radio" name="beds" value="1" /><label class="filter-btn" for="beds-1">1</label>
-        <input id="beds-2" type="radio" name="beds" value="2" /><label class="filter-btn" for="beds-2">2</label>
-        <input id="beds-3" type="radio" name="beds" value="3" /><label class="filter-btn" for="beds-3">3</label>
+        <input id="beds-0" type="radio" name="beds" value="beds-0" /><label class="filter-btn" for="beds-0">Studio</label>
+        <input id="beds-1" type="radio" name="beds" value="beds-1" /><label class="filter-btn" for="beds-1">1</label>
+        <input id="beds-2" type="radio" name="beds" value="beds-2" /><label class="filter-btn" for="beds-2">2</label>
+        <input id="beds-3" type="radio" name="beds" value="beds-3" /><label class="filter-btn" for="beds-3">3</label>
         <input id="beds-all" type="radio" name="beds" value="all" /><label class="filter-btn" for="beds-all">All</label>
       </div>
-      <div class="baths-filter filter">
+      <div id="baths-filter" class="filter">
         <strong class="filter-name color">Baths</strong>
-        <input id="baths-1" type="radio" name="baths" value="1" /><label class="filter-btn" for="baths-1">1</label>
-        <input id="baths-2" type="radio" name="baths" value="2" /><label class="filter-btn" for="baths-2">2</label>
-        <input id="baths-3" type="radio" name="baths" value="3" /><label class="filter-btn" for="baths-3">3</label>
+        <input id="baths-1" type="radio" name="baths" value="baths-1" /><label class="filter-btn" for="baths-1">1</label>
+        <input id="baths-2" type="radio" name="baths" value="baths-2" /><label class="filter-btn" for="baths-2">2</label>
+        <input id="baths-3" type="radio" name="baths" value="baths-3" /><label class="filter-btn" for="baths-3">3</label>
         <input id="baths-all" type="radio" name="baths" value="all" /><label class="filter-btn" for="baths-all">All</label>
       </div>
       <!-- <div class="filter available-filter">
@@ -45,7 +45,7 @@
 
       <ul id="sortable">
         <% @floor_plans.each do |floor_plan| %>
-          <li class="floorplan clearfix" data-update_url="<%= location_floor_plan_path(@location, floor_plan) %>">
+          <li class="floorplan beds-<%= floor_plan.beds %> baths-<%= floor_plan.baths %> clearfix" data-update_url="<%= location_floor_plan_path(@location, floor_plan) %>">
 
             <div class="floorplan-heading">
               <p><strong><%= floor_plan.title %></strong></p>
@@ -74,10 +74,10 @@
 
               <div class="floorplan-beds">
                 <% if floor_plan.beds %>
-                  <p><strong class="beds-val"><%= floor_plan.beds %></strong> <%= 'Bed'.pluralize(floor_plan.beds) %></p>
+                  <p><strong><%= floor_plan.beds %></strong> <%= 'Bed'.pluralize(floor_plan.beds) %></p>
                 <% end %>
                 <% if floor_plan.baths %>
-                  <p><strong class="baths-val"><%= floor_plan.baths %></strong> <%= 'Bath'.pluralize(floor_plan.baths) %></p>
+                  <p><strong><%= floor_plan.baths %></strong> <%= 'Bath'.pluralize(floor_plan.baths) %></p>
                 <% end %>
               </div>
 
