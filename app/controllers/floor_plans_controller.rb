@@ -1,4 +1,5 @@
 class FloorPlansController < ApplicationController
+  http_basic_authenticate_with(name: ENV["HTTP_BASIC_AUTH_NAME"], password: ENV["HTTP_BASIC_AUTH_PASSWORD"], except: :show) if ENV["HTTP_BASIC_AUTH_NAME"] && ENV["HTTP_BASIC_AUTH_PASSWORD"]
   before_action :set_floor_plan, only: [:show, :edit, :update, :destroy]
   before_filter :get_location
 
