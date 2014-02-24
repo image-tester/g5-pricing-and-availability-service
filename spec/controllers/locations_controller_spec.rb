@@ -13,6 +13,10 @@ describe LocationsController do
   let(:valid_session) { {} }
 
   describe "GET index" do
+    before :each do
+      http_login
+    end
+
     it "assigns all locations as @locations" do
       location = Location.create! valid_attributes
       get :index, {}, valid_session
@@ -53,6 +57,10 @@ describe LocationsController do
   end
 
   describe "GET new" do
+    before :each do
+      http_login
+    end
+
     it "assigns a new location as @location" do
       get :new, {}, valid_session
       expect(assigns(:location)).to be_a_new(Location)
@@ -60,6 +68,10 @@ describe LocationsController do
   end
 
   describe "GET edit" do
+    before :each do
+      http_login
+    end
+
     it "assigns the requested location as @location" do
       location = Location.create! valid_attributes
       get :edit, {:id => location.to_param}, valid_session
@@ -68,6 +80,10 @@ describe LocationsController do
   end
 
   describe "POST create" do
+    before :each do
+      http_login
+    end
+
     describe "with valid params" do
       it "creates a new Location" do
         expect {
@@ -114,6 +130,10 @@ describe LocationsController do
   end
 
   describe "PUT update" do
+    before :each do
+      http_login
+    end
+
     describe "with valid params" do
       it "updates the requested location" do
         location = Location.create! valid_attributes
@@ -159,6 +179,10 @@ describe LocationsController do
   end
 
   describe "DELETE destroy" do
+    before :each do
+      http_login
+    end
+
     it "destroys the requested location" do
       location = Location.create! valid_attributes
       expect {

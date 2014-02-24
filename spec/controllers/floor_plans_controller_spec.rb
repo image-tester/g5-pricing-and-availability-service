@@ -4,6 +4,7 @@ describe FloorPlansController do
 
   before(:each) do
     @location = Location.create! "urn" => "g5-cl-6cx7rin-hollywood", "name" => "Hollywood"
+    http_login
   end
 
   # This should return the minimal set of attributes required to create a valid
