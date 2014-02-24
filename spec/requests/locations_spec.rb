@@ -1,15 +1,16 @@
 require 'spec_helper'
 
 describe "Locations" do
-  
+
   def create_location
     fill_in "Name", with: "Clearwater"
     fill_in "Urn", with: "g5-cl-8cz7tip-clearwater"
     click_button "Create Location"
   end
-  
+
   describe "Locations index" do
     before do
+      http_login
       visit locations_path
     end
 
@@ -28,6 +29,7 @@ describe "Locations" do
 
   describe "New Location" do
     before do
+      http_login
       visit new_location_path
     end
 
@@ -43,6 +45,7 @@ describe "Locations" do
 
   describe "Edit Locations" do
     before do
+      http_login
       visit new_location_path
       create_location
       click_link "Edit Location and Floor Plans"
@@ -68,6 +71,10 @@ describe "Locations" do
   end
 
   describe "Destroy Locations" do
+    before do
+      http_login
+    end
+
     it "can destroy a location" do
       visit new_location_path
       create_location

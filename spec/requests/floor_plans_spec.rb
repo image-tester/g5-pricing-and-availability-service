@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "Floor Plans" do
-  
+
   def create_location
     visit locations_path
     click_link "New Location"
@@ -19,7 +19,7 @@ describe "Floor Plans" do
     fill_in "Price", with: "1600"
     click_button "Create Floor plan"
   end
-  
+
   def drag_and_drop(source, target)
     builder = page.driver.browser.action
     source = source.native
@@ -34,6 +34,7 @@ describe "Floor Plans" do
 
   describe "Floor plans index" do
     before do
+      http_login
       create_location
       create_floor_plan
     end
@@ -46,11 +47,11 @@ describe "Floor Plans" do
       expect(page).to have_content "Cedar Point"
       expect(page).to have_content "3 Beds"
     end
-    
+
     it "shows check availability link when none entered" do
       expect(page).to have_content "Check Availability"
     end
-    
+
     it "shows # available link when entered" do
       click_link "Edit Location and Floor Plans"
       within "#edit_floor_plan_1" do
@@ -62,6 +63,7 @@ describe "Floor Plans" do
 
   describe "New Floor Plan" do
     before do
+      http_login
       create_location
     end
 
@@ -78,6 +80,7 @@ describe "Floor Plans" do
 
   describe "Edit Floor Plan" do
     before do
+      http_login
       create_location
       create_floor_plan
       click_link "Edit Location and Floor Plans"
@@ -102,6 +105,10 @@ describe "Floor Plans" do
   end
 
   describe "Destory Floor Plans" do
+    before do
+      http_login
+    end
+
     it "can destroy a floor plan" do
       create_location
       create_floor_plan
@@ -112,7 +119,7 @@ describe "Floor Plans" do
       expect(page).not_to have_content "Cedar Point"
     end
   end
-  
+
   describe "Floor plans are drag and drop sortable" do
     before do
       @location = Location.create! "urn" => "g5-cl-6cx7rin-hollywood", "name" => "Hollywood"
@@ -120,8 +127,9 @@ describe "Floor Plans" do
       @floor_plan_2 = FloorPlan.create! "location_id" => @location.id, "title" => "Unit 2"
       visit location_path(@location)
     end
-    
+
     it "Updates database", js: true do
+      http_login
       expect(page).to have_content("Hollywood")
       within "#sortable" do
         floor_plan_1 = find('.floorplan:first-child')
