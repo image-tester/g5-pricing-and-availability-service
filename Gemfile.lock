@@ -48,9 +48,6 @@ GEM
     coffee-script-source (1.6.3)
     database_cleaner (1.0.1)
     diff-lcs (1.2.5)
-    dotenv (0.9.0)
-    dotenv-rails (0.9.0)
-      dotenv (= 0.9.0)
     erubis (2.7.0)
     execjs (2.0.2)
     ffi (1.9.3)
@@ -165,7 +162,6 @@ DEPENDENCIES
   capybara (~> 2.1.0)
   coffee-rails (~> 4.0.0)
   database_cleaner (~> 1.0.1)
-  dotenv-rails (~> 0.9.0)
   honeybadger
   jbuilder (~> 1.2)
   jquery-rails
