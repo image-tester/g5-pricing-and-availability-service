@@ -67,6 +67,17 @@ describe "Locations" do
     end
   end
 
+  describe "Show Location" do
+    before do
+      @location = Location.create! "urn" => "g5-cl-6cx7rin-hollywood", "name" => "Hollywood"
+      visit location_path(@location)
+    end
+
+    it "displays location" do
+      expect(page).to have_content "Hollywood Floor Plans"
+    end
+  end
+
   describe "Edit Locations" do
     describe "with http basic auth" do
       before do
@@ -97,7 +108,8 @@ describe "Locations" do
 
     describe "without http basic auth" do
       before do
-        visit edit_location_path(1)
+        @location = Location.create! "urn" => "g5-cl-6cx7rin-hollywood", "name" => "Hollywood"
+        visit edit_location_path(@location)
       end
 
       it "cannot edit a location" do
