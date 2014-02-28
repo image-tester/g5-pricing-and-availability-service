@@ -45,3 +45,7 @@ img {
 #sortable tr {
   cursor: row-resize;
 }
+
+.ui-sortable-helper {
+  width: 100%;
+}
