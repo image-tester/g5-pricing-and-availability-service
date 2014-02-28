@@ -5,5 +5,7 @@ G5PricingService::Application.routes.draw do
   resources :locations do
     resources :floor_plans
   end
-  
+
+  get '/locations/:id/widget', to: 'locations#widget'
+
 end
