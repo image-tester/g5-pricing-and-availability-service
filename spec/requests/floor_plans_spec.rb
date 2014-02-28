@@ -46,7 +46,7 @@ describe "Floor Plans" do
 
       it "shows all floor plans" do
         expect(page).to have_content "Cedar Point"
-        expect(page).to have_content "3 Beds"
+        expect(page).to have_content "3"
       end
 
       it "shows check availability link when none entered" do
