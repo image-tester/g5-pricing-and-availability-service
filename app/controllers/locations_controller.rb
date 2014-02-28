@@ -1,32 +1,29 @@
 class LocationsController < ApplicationController
   http_basic_authenticate_with(name: ENV["HTTP_BASIC_AUTH_NAME"], password: ENV["HTTP_BASIC_AUTH_PASSWORD"], except: :show) if ENV["HTTP_BASIC_AUTH_NAME"] && ENV["HTTP_BASIC_AUTH_PASSWORD"]
-  before_action :set_location, only: [:show, :edit, :update, :destroy]
+  before_action :set_location, only: [:show, :widget, :edit, :update, :destroy]
 
-  # GET /locations
-  # GET /locations.json
   def index
     @locations = Location.all
   end
 
-  # GET /locations/1
-  # GET /locations/1.json
   def show
     @floor_plans = @location.floor_plans.rank(:row_order)
     @title = "#{@location.name} Floor Plans"
   end
 
-  # GET /locations/new
+  # This is the markup served to the widget
+  def widget
+    @floor_plans = @location.floor_plans.rank(:row_order)
+  end
+
   def new
     @location = Location.new
   end
 
-  # GET /locations/1/edit
   def edit
     @floor_plans = @location.floor_plans
   end
 
-  # POST /locations
-  # POST /locations.json
   def create
     @location = Location.new(location_params)
 
@@ -41,8 +38,6 @@ class LocationsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /locations/1
-  # PATCH/PUT /locations/1.json
   def update
     respond_to do |format|
       if @location.update(location_params)
@@ -55,8 +50,6 @@ class LocationsController < ApplicationController
     end
   end
 
-  # DELETE /locations/1
-  # DELETE /locations/1.json
   def destroy
     @location.destroy
     respond_to do |format|
@@ -66,12 +59,10 @@ class LocationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_location
       @location = Location.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
       params.require(:location).permit(:urn, :name)
     end
