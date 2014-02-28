@@ -8,100 +8,52 @@
   <p>No floor plans have been created yet.</p>
 <% end %>
 
+<table class="table table-striped table-hover table-responsive">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Availability</th>
+      <th>Thumbnail</th>
+      <th>Beds</th>
+      <th>Baths</th>
+      <th>Size</th>
+      <th>Price</th>
+      <th>Deoposit</th>
+    </tr>
+  </thead>
 
-<div class="e-content">
-
-  <h2>Select Your Apartment</h2>
-
-  <div class="floorplan-container floorplan-box">
-
-    <h3>1. Select Floor Plan</h3>
-
-    <div class="filters clearfix">
-
-      <div id="beds-filter" class="filter">
-        <strong class="filter-name color">Beds</strong>
-        <input id="beds-0" type="radio" name="beds" value="beds-0" /><label class="filter-btn" for="beds-0">Studio</label>
-        <input id="beds-1" type="radio" name="beds" value="beds-1" /><label class="filter-btn" for="beds-1">1</label>
-        <input id="beds-2" type="radio" name="beds" value="beds-2" /><label class="filter-btn" for="beds-2">2</label>
-        <input id="beds-3" type="radio" name="beds" value="beds-3" /><label class="filter-btn" for="beds-3">3</label>
-        <input id="beds-all" type="radio" name="beds" value="beds-all" checked /><label class="filter-btn" for="beds-all">All</label>
-      </div>
-      <div id="baths-filter" class="filter">
-        <strong class="filter-name color">Baths</strong>
-        <input id="baths-1" type="radio" name="baths" value="baths-1" /><label class="filter-btn" for="baths-1">1</label>
-        <input id="baths-2" type="radio" name="baths" value="baths-2" /><label class="filter-btn" for="baths-2">2</label>
-        <input id="baths-3" type="radio" name="baths" value="baths-3" /><label class="filter-btn" for="baths-3">3</label>
-        <input id="baths-all" type="radio" name="baths" value="baths-all" checked /><label class="filter-btn" for="baths-all">All</label>
-      </div>
-      <!-- <div class="filter available-filter">
-        <label><input type="checkbox" /> Show Only Available</label>
-      </div> -->
-
-    </div> <!-- end filters -->
-
-    <!-- STEP 1: CHOOSE FLOORPLAN -->
-    <div class="floorplans-list">
-
-      <ul id="sortable">
-        <% @floor_plans.each do |floor_plan| %>
-          <li class="floorplan beds-<%= floor_plan.beds %> baths-<%= floor_plan.baths %> clearfix" data-update_url="<%= location_floor_plan_path(@location, floor_plan) %>">
-
-            <div class="floorplan-heading">
-              <p><strong><%= floor_plan.title %></strong></p>
-              <% if floor_plan.available_now || floor_plan.available_soon %>
-                <a href="<%= pricing_service(floor_plan) %>" class="choose-floorplan floorplan-btn">
-                  <% if floor_plan.available_now && floor_plan.available_now > 0 %>
-                    <span><strong class="color"><%= floor_plan.available_now %></strong> Available Now</span>
-                  <% end %>
-                  <% if floor_plan.available_soon && floor_plan.available_soon > 0 %>
-                    <span class="soon"><strong class="color"><%= floor_plan.available_soon %></strong> Available Soon</span>
-                  <% end %>
-                </a>
-              <% else %>
-                <a href="<%= pricing_service(floor_plan) %>" class="choose-floorplan floorplan-btn" target="_blank">
-                  <span>Check Availability</span>
-                </a>
-              <% end %>
-            </div>
-
-            <div class="floorplan-info">
-              <div class="floorplan-img">
-                <% unless floor_plan.image_url.blank? %>
-                  <a href="<%= floor_plan.image_url %>" class="floorplan-btn"><img src="<%= floor_plan.image_url %>" alt="Floor Plan" /></a>
-                <% end %>
-              </div>
-
-              <div class="floorplan-beds">
-                <% if floor_plan.beds %>
-                  <p><strong><%= floor_plan.beds %></strong> <%= 'Bed'.pluralize(floor_plan.beds) %></p>
-                <% end %>
-                <% if floor_plan.baths %>
-                  <p><strong><%= floor_plan.baths %></strong> <%= 'Bath'.pluralize(floor_plan.baths) %></p>
-                <% end %>
-              </div>
-
-              <div class="floorplan-size">
-                <% if floor_plan.size %>
-                  <p class="sq-ft floorplan-feature"><strong><%= floor_plan.size %> </strong>Sq Ft</p>
-                <% end %>
-              </div>
-
-              <div class="floorplan-rent">
-                <% if floor_plan.price %>
-                  <p>Starts At: <strong>$<%= floor_plan.price %></strong></p>
-                <% end %>
-                <% if floor_plan.deposit %>
-                  <p>Deposit: <strong>$<%= floor_plan.deposit %></strong></p>
-                <% end %>
-              </div>
-            </div>
-          </li> <!-- end floorplan -->
-        <% end %>
-
-      </ul>
-    </div> <!-- end STEP 1: SELECT FLOORPLAN -->
-  </div> <!-- end floorplan-container -->
-</div> <!-- end floorplans -->
-
-
+  <tbody id="sortable">
+    <% @floor_plans.each do |floor_plan| %>
+      <tr class="floorplan" data-update_url="<%= location_floor_plan_path(@location, floor_plan) %>">
+        <td><%= floor_plan.title %></td>
+        <td>
+          <% if floor_plan.available_now || floor_plan.available_soon %>
+            <% if floor_plan.available_now && floor_plan.available_now > 0 %>
+              <%= floor_plan.available_now %> Available Now
+            <% end %>
+            <% if floor_plan.available_now || floor_plan.available_soon %>
+              <br />
+            <% end %>
+            <% if floor_plan.available_soon && floor_plan.available_soon > 0 %>
+              <%= floor_plan.available_soon %> Available Soon
+            <% end %>
+          <% else %>
+            Check Availability
+          <% end %>
+        </td>
+        <td>
+          <% if floor_plan.image_url.blank? %>
+          ---
+          <% else %>
+            <img src="<%= floor_plan.image_url %>" alt="Floor Plan" />
+          <% end %>
+        </td>
+        <td><%= floor_plan.beds ? floor_plan.beds : '---' %></td>
+        <td><%= floor_plan.baths ? floor_plan.baths : '---' %></td>
+        <td><%= floor_plan.size ? "#{floor_plan.size} Sq. Ft." : '---' %></td>
+        <td><%= floor_plan.price ? "$#{floor_plan.price}" : '---' %></td>
+        <td><%= floor_plan.deposit ? "$#{floor_plan.deposit}" : '---' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

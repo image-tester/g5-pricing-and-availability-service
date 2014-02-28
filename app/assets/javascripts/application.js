@@ -18,13 +18,21 @@
 
 $(document).ready(function(){
 
+  var fixHelper = function(e, ui) {
+    ui.children().each(function() {
+      $(this).width($(this).width());
+    });
+    return ui;
+  };
+
   $('#sortable').sortable({
     axis: 'y',
     dropOnEmpty: false,
     cursor: 'move',
     items: '.floorplan',
     opacity: 0.5,
-    scroll: true,
+    distance: 5,
+    helper: fixHelper,
     stop: function(e, ui) {
       ui.item.effect('highlight', {}, 1000);
     },
