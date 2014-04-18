@@ -26,12 +26,6 @@ describe "Locations" do
         expect(page).to have_content "Clearwater"
         expect(page).to have_content "g5-cl-8cz7tip-clearwater"
       end
-
-      it "has client apps navigation" do
-        expect(page).to have_link("CMS", "http://g5-cms-8cz7tip-clearwater.herokuapp.com")
-        expect(page).to have_link("Pricing and Availability", "http://g5-cpas-8cz7tip-clearwater.herokuapp.com")
-        expect(page).to have_link("Leads", "http://g5-cls-8cz7tip-clearwater.herokuapp.com")
-      end
     end
 
     describe "without http basic auth" do
@@ -42,6 +36,15 @@ describe "Locations" do
       it "doesnt show all locations" do
         expect(page).to have_content "HTTP Basic: Access denied."
       end
+    end
+
+    it "has client apps navigation" do
+      Capybara.app_host = 'http://g5-cpas-8cz7tip-clearwater.herokuapp.com'
+      http_login
+      visit locations_path
+      expect(page).to have_link("CMS", "http://g5-cms-8cz7tip-clearwater.herokuapp.com")
+      expect(page).to have_link("Pricing and Availability", "http://g5-cpas-8cz7tip-clearwater.herokuapp.com")
+      expect(page).to have_link("Leads", "http://g5-cls-8cz7tip-clearwater.herokuapp.com")
     end
   end
 
