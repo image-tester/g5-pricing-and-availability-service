@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.1.1'
 
-gem 'rails', '4.0.1'
+gem 'rails', '4.1.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'turbolinks'
@@ -36,4 +36,3 @@ end
 group :doc do
   gem 'sdoc', require: false
 end
-
