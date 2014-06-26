@@ -44,7 +44,7 @@ describe "Locations" do
       visit locations_path
       expect(page).to have_link("CMS", "http://g5-cms-8cz7tip-clearwater.herokuapp.com")
       expect(page).to have_link("Pricing and Availability", "http://g5-cpas-8cz7tip-clearwater.herokuapp.com")
-      expect(page).to have_link("Leads", "http://g5-cls-8cz7tip-clearwater.herokuapp.com")
+      expect(page).to have_link("Customer Experience Management", "http://g5-cxm-8cz7tip-clearwater.herokuapp.com")
     end
   end
 
