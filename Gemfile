@@ -8,6 +8,7 @@ gem "turbolinks"
 gem "jbuilder", "~> 1.2"
 gem "ranked-model"
 gem "microformats2"
+gem "g5_updatable"
 
 group :assets do
   gem "sass-rails", "~> 4.0.0"
