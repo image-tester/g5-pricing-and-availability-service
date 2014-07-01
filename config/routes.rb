@@ -8,6 +8,4 @@ G5PricingService::Application.routes.draw do
   end
 
   get '/locations/:id/widget', to: 'locations#widget'
-
-  post "update" => "webhooks#update"
 end
