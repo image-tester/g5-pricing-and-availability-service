@@ -1,10 +1,6 @@
 class FloorPlansController < ApplicationController
-  if ENV["HTTP_BASIC_AUTH_NAME"] && ENV["HTTP_BASIC_AUTH_PASSWORD"]
-    http_basic_authenticate_with name: ENV["HTTP_BASIC_AUTH_NAME"], password: ENV["HTTP_BASIC_AUTH_PASSWORD"], except: :index
-  end
-
   before_action :set_floor_plan, only: [:show, :edit, :update, :destroy]
-  before_filter :get_location
+  before_filter :get_location, :authenticate
 
   # GET /floor_plans
   # GET /floor_plans.json
@@ -80,5 +76,21 @@ class FloorPlansController < ApplicationController
     def get_location
       # You probably want to find by urn here
       @location = Location.find params[:location_id]
+    end
+
+    def authenticate
+      if needs_authentication?
+        authenticate_or_request_with_http_basic do |name, password|
+          name == ENV["HTTP_BASIC_AUTH_NAME"] && password == ENV["HTTP_BASIC_AUTH_PASSWORD"]
+        end
+      end
+    end
+
+    def needs_authentication?
+      ENV["HTTP_BASIC_AUTH_NAME"] && ENV["HTTP_BASIC_AUTH_PASSWORD"] && !floor_plans_json_request?
+    end
+
+    def floor_plans_json_request?
+      action_name == "index" && request.format.json?
     end
 end
