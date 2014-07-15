@@ -35,8 +35,13 @@ describe FloorPlansController do
     end
 
     describe "without http basic auth" do
-      it "doesnt render the locations index template" do
+      it "renders the locations index template" do
         get :index, {location_id: @location.to_param}, valid_session
+        expect(response.status).to eq(200)
+      end
+
+      it "doesn't allow creation of new floorplan" do
+        get :new, {location_id: @location.to_param}, valid_session
         expect(response.status).to eq(401)
       end
     end
