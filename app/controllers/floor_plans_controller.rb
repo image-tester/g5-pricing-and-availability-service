@@ -9,7 +9,7 @@ class FloorPlansController < ApplicationController
   # GET /floor_plans
   # GET /floor_plans.json
   def index
-    @floor_plans = @location ? @location.floor_plans : FloorPlan.all
+    @floor_plans = @location.floor_plans
   end
 
   # GET /floor_plans/1
