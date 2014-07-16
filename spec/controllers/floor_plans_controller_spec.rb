@@ -22,10 +22,13 @@ describe FloorPlansController do
         http_login
       end
 
-      it "assigns all floor_plans as @floor_plans" do
-        floor_plan = @location.floor_plans.create! valid_attributes
+      it "assigns a location's floor_plans as @floor_plans" do
+        floor_plan_1 = @location.floor_plans.create! valid_attributes
+        floor_plan_2 = @location.floor_plans.create! valid_attributes
+        other_location = Location.create! "urn" => "g5-cl-6cx7rin-uluwatu", "name" => "Uluwatu"
+        other_floor_plan = other_location.floor_plans.create! "title" => "Other Floorplan"
         get :index, {location_id: @location.to_param}, valid_session
-        expect(assigns(:floor_plans)).to eq([floor_plan])
+        expect(assigns(:floor_plans)).to eq([floor_plan_1, floor_plan_2])
       end
 
       it "renders the locations index template" do
