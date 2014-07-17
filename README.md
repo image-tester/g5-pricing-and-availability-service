@@ -22,6 +22,7 @@ $ rake db:setup
   * Chad Crissman / [@crissmancd](https://github.com/crissmancd)
   * Shane Becker / [@veganstraightedge](https://github.com/veganstraightedge)
   * Jessica Dilon / [@jessicard](https://github.com/jessicard)
+  * Brian Bauer / [@bbauer](https://github.com/bbauer)
 
 
 ## Contributing
