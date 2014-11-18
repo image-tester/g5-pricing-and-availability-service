@@ -21,7 +21,7 @@ group :development, :test do
   gem "sqlite3"
   gem "rspec-rails", "~> 2.14.0"
   gem "capybara", "~> 2.1.0"
-  gem "selenium-webdriver", "~> 2.39.0"
+  gem "selenium-webdriver", "~> 2.45.0"
   gem "database_cleaner", "~> 1.0.1"
   gem "foreman"
   gem "fabrication"
